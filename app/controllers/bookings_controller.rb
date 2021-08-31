@@ -13,6 +13,6 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    # reder back
+    redirect_to :back
   end
 end
