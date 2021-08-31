@@ -37,6 +37,6 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:capacity, :description, :category,
                                   :recurrence_times, :recurrence_frequency,
-                                  :address, :lat, :lon, :start_time, :end_time)
+                                  :address, :lat, :lon, :start_time, :end_time, :photo)
   end
 end
