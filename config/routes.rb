@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'profile/:id', to: "pages#profile", as: :profile
   resources :events, only: %i[index show create update destroy] do
-    resources :bookings, only: %i[create update destroy]
+    resources :bookings, only: %i[create destroy]
   end
 end
