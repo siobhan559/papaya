@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to event_path(@event)
     else
-      #
+      # test
     end
   end
 
