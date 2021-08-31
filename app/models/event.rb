@@ -8,6 +8,7 @@ class Event < ApplicationRecord
 
   belongs_to :user
   has_many :users, through: :bookings
+  has_one_attached :photo
 
   validates :capacity, numericality: { only_integer: true, greater_than: 0 }
   validates :description, length: { minimum: 10 }

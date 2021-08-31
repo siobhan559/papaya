@@ -8,18 +8,18 @@ class User < ApplicationRecord
   has_many :events, as: :created_events, dependent: :destroy
   has_one_attached :photo
 
-  validate :volunteer?, :organization?
+  validate :volunteer, :organization
 
   private
 
-  def volunteer?
-    if organization?.present? && !organization?
+  def volunteer
+    if organization.present? && !organization?
       errors.add(:first_name, 'field required') unless first_name.present? && last_name.present?
     end
   end
 
-  def organization?
-    if organization?.present? && organization?
+  def organization
+    if organization.present? && organization?
       errors.add(:company_name, 'field required') unless company_name.present?
       errors.add(:bio, 'field required') unless bio.present?
     end
