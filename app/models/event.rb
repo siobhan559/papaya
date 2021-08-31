@@ -1,7 +1,13 @@
 class Event < ApplicationRecord
+  include PgSearch::Model
+
+  pg_search_scope :search_by_address_and_name, against: [ :address, :name ],
+  using: {
+    tsearch: { prefix: true }
+  }
+
   belongs_to :user
   has_many :users, through: :bookings
-  has_one_attached :photo
 
   validates :capacity, numericality: { only_integer: true, greater_than: 0 }
   validates :description, length: { minimum: 10 }
