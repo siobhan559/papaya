@@ -1,4 +1,5 @@
 require 'faker'
+require 'open-uri'
 
 ##################################
 #####    Seed The Program    #####
@@ -16,13 +17,9 @@ puts "---------------------------------------------"
 #####     Helper Method     #####
 #################################
 
-def attach_photo(object, url, item = true)
+def attach_photo(object, url)
   file = URI.open(url)
-  if item
-    object.photos.attach(io: file, filename: 'image.png', content_type: 'image/png')
-  else
-    object.photo.attach(io: file, filename: 'image.png', content_type: 'image/png')
-  end
+  object.photo.attach(io: file, filename: 'image.png', content_type: 'image/png')
 end
 
 ###################################
@@ -31,11 +28,11 @@ end
 puts "---------------------------------------------"
 puts "Creating users..."
 
-helen = User.new(email: Faker::Internet.email, password: 'password', first_name: 'Helen', last_name: 'Heart', organization?: false, bio: Faker::Movies::PrincessBride.quote, age: 21, gender: 'female', religion: 'athiest')
-attach_photo(helen, 'https://unsplash.com/photos/aoQ4DYZLE_E', false)
+helen = User.new(email: Faker::Internet.email, password: 'password', first_name: 'Helen', last_name: 'Heart', organization: false, bio: Faker::Movies::PrincessBride.quote, age: 21, gender: 'female', religion: 'athiest')
+attach_photo(helen, 'https://unsplash.com/photos/aoQ4DYZLE_E')
 
-oxfam = User.new(email: Faker::Internet.email, password: 'password', company_name: 'Oxfam', organization?: true, bio: Faker::Movies::PrincessBride.quote)
-attach_photo(oxfam, 'https://unsplash.com/photos/AEaTUnvneik', false)
+oxfam = User.new(email: Faker::Internet.email, password: 'password', company_name: 'Oxfam', organization: true, bio: Faker::Movies::PrincessBride.quote)
+attach_photo(oxfam, 'https://unsplash.com/photos/AEaTUnvneik')
 
 puts "🎉 Success, users created!"
 puts "---------------------------------------------"
