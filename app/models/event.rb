@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   include PgSearch::Model
 
-  pg_search_scope :search_by_address_and_name, against: [ :address, :name ],
+  pg_search_scope :search, against: [ :address, :name, :category ],
   using: {
     tsearch: { prefix: true }
   }
