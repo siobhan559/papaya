@@ -6,7 +6,7 @@
         <%= f.error_notification %>
         <div class="form-inputs">
         <%# ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-          <%= f.input :organization, required: true, as: :radio_buttons, label: 'Are you an organization?' %>
+          <%= f.input :organization, required: true, as: :radio_buttons, label: 'Are you an organization?', wrapper_html: { class: 'form-check-inline' } %>
           <%= f.input :first_name, required: true, input_html: { class: 'd-none volunteer' }, label_html: { class: 'd-none volunteer' } %>
           <%= f.input :last_name, required: true, input_html: { class: 'd-none volunteer' }, label_html: { class: 'd-none volunteer' } %>
           <%= f.input :company_name, required: true, input_html: { class: 'd-none organization' }, label_html: { class: 'd-none organization' } %>
