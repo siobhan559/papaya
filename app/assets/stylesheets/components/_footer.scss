@@ -1,13 +1,25 @@
 /* FOR MOBILE */
 @media(max-width: 600px) {
-  .footer {
+  #footer {
     background-color: #a5a3a3;
+    height: 100px;
+    padding: 20px 50px;
+    margin-top: 20px;
+    position: sticky;
+    bottom: 0;
   }
 }
 
 /* FOR TABLET & DESKTOP */
 @media(min-width: 601px) {
-  .footer {
+  #footer {
     display: none;
   }
 }
+
+/* NOT TO CHOP BOTTOM OF PAGE CONTENT */
+// .body {
+//   min-height: 400px;
+//   margin-bottom: 70px;
+//   clear: both;
+// }
