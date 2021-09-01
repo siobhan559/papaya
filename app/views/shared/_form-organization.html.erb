@@ -1,6 +1,9 @@
 <div class="container">
   <%= simple_form_for(@event) do |f| %>
     <%= f.input :name %>
+    <%= f.input :capacity %>
+    <%= f.input :latitude %>
+    <%= f.input :longitude %>
     <%= f.input :description %>
     <%= f.input :category, collection: ['Health', 'Education', 'Animals', 'Community', 'Faith', 'Women', 'Shelters', 'LGBTQ', 'Sport', 'Food', 'Other'] %>
     <%= f.input :start_time %>
@@ -12,3 +15,4 @@
     <%= f.submit %>
   <% end %>
 </div>
+<% console %>
