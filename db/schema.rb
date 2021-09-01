@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_31_170032) do
+ActiveRecord::Schema.define(version: 2021_09_01_094136) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 2021_08_31_170032) do
     t.integer "recurrence_times"
     t.string "recurrence_frequency"
     t.string "address"
-    t.float "lat"
-    t.float "long"
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "start_time"
     t.datetime "end_time"
     t.bigint "user_id", null: false
