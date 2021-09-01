@@ -1,34 +1,36 @@
-<h2>Sign up</h2>
-
- <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :first_name%>
-    <%= f.input :last_name%>
-    <%= f.input :age, collection: 18..100 %>
-    <%= f.input :gender, collection: ['Male', 'Female', 'Other', 'Prefer not to say'] %>
-    <%= f.input :religion, collection: ['Muslim', 'Christian', 'Jewish', 'Sikh', 'Hindu', 'Buddhist', 'Other', 'Not religious', 'Prefer not to say'] %>
-    <%= f.input :company_name%>
-    <%= f.input :photo, as: :file %>
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+<div class="row justify-content-center" id="cesar">
+  <div class="col-12 col-md-8 col-lg-6">
+    <div class="form p-5">
+      <h2>Sign up</h2>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+        <div class="form-inputs">
+        <%# ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+          <%= f.input :organization, required: true, as: :radio_buttons, label: 'Are you an organization?', wrapper_html: { class: 'form-check-inline' } %>
+          <%= f.input :first_name, required: true, input_html: { class: 'd-none volunteer' }, label_html: { class: 'd-none volunteer' } %>
+          <%= f.input :last_name, required: true, input_html: { class: 'd-none volunteer' }, label_html: { class: 'd-none volunteer' } %>
+          <%= f.input :company_name, required: true, input_html: { class: 'd-none organization' }, label_html: { class: 'd-none organization' } %>
+          <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" }, input_html: { class: 'd-none both' }, label_html: { class: 'd-none both' }%>
+          <%= f.input :password, required: true, hint: false , input_html: { autocomplete: "new-password" }, input_html: { class: 'd-none both' }, label_html: { class: 'd-none both' } %>
+          <%= f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" }, input_html: { class: 'd-none both' }, label_html: { class: 'd-none both' } %>
+          <div class="row">
+            <div class="col">
+              <%= f.input :religion, collection: ['Prefer not to say', 'Muslim', 'Christian', 'Jewish', 'Sikh', 'Hindu', 'Buddhist', 'Other', 'None'], input_html: { class: 'd-none volunteer' }, label_html: { class: 'd-none volunteer' } %>
+            </div>
+            <div class="col">
+              <%= f.input :gender, collection: ['Male', 'Female', 'Other', 'Prefer not to say'], input_html: { class: 'd-none volunteer' }, label_html: { class: 'd-none volunteer' } %>
+            </div>
+            <div class="col">
+              <%= f.input :age, as: :integer, input_html: { class: 'd-none volunteer' }, label_html: { class: 'd-none volunteer' } %>
+            </div>
+          </div>
+          <%= f.input :photo, as: :file, label: 'Profile photo', input_html: { class: 'd-none both' }, label_html: { class: 'd-none both' } %>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, value: 'Sign up', class: 'btn btn-primary d-none both'%>
+        </div>
+      <% end %>
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
-
-<div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
-
-<%= link_to 'Back', root_path %>
+</div>
