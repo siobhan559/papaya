@@ -43,7 +43,6 @@ puts "---------------------------------------------"
 
 puts "---------------------------------------------"
 puts "Creating events..."
-puts "---------------------------------------------"
 
 cooking = Event.create(capacity: rand(1..20),
                       description: Faker::Movies::PrincessBride.quote,
