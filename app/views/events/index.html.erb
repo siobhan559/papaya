@@ -4,6 +4,9 @@
 
 <ul>
   <% @events.each do |event| %>
-    <li><%= link_to event.name, event_path(event) %></li>
+    <li></li><%= render "shared/card-event", event: event %>
+    
   <% end %>
 </ul>
+
+
