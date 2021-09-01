@@ -3,4 +3,5 @@ class Booking < ApplicationRecord
   belongs_to :event
 
   validates :user, :event, presence: true
+  validates :user, uniqueness: { scope: :event }
 end
