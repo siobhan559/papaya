@@ -1,13 +1,11 @@
 class Event < ApplicationRecord
   include PgSearch::Model
 
-  pg_search_scope :search, against: [ :address, :name, :category ],
-  using: {
-    tsearch: { prefix: true }
-  }
+  pg_search_scope :search, against: %i[address name category], using: { tsearch: { prefix: true } }
 
   belongs_to :user
   has_many :users, through: :bookings
+  has_many :bookings, dependent: :destroy
   has_one_attached :photo
 
   validates :capacity, numericality: { only_integer: true, greater_than: 0 }
