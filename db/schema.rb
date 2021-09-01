@@ -57,8 +57,8 @@ ActiveRecord::Schema.define(version: 2021_09_01_095907) do
     t.integer "recurrence_times"
     t.string "recurrence_frequency"
     t.string "address"
-    t.float "lat"
-    t.float "long"
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "start_time"
     t.datetime "end_time"
     t.bigint "user_id", null: false
