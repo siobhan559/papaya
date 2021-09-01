@@ -28,7 +28,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to event_path(@event)
     else
-      # render :new
+      render 'pages/profile'
     end
   end
 
