@@ -1,0 +1,15 @@
+<div class="index-card">
+  <%#= cl_image_tag @event.photo.key, alt: "#", width: 200 %>
+  <div class="index-card-info">
+    <%= event.category %>
+    <%= event.name %>
+    <%= event.start_time %> - <%= event.end_time %><h4>
+    <p><%= event.description %> </p>
+  </div>
+  <div>
+    <%= link_to "See More", event_path(event) %>
+  </div>
+  <div class="by-host-name">
+    <p> <%= event.user %> </p>
+  </div>
+</div> 
