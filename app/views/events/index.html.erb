@@ -3,6 +3,5 @@
 <ul>
   <% @events.each do |event| %>
     <li><%= link_to event.name, event_path(event) %></li>
-  <% raise %>
   <% end %>
 </ul>
