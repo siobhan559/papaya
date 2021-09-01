@@ -1,7 +1,7 @@
 // Global vars
-const radioYes = document.getElementById("user_organization_true");
-const radioNo = document.getElementById("user_organization_false");
-let FIRST = true;
+let radioYes;
+let radioNo;
+let FIRST;
 let TOGGLE;
 
 // When a user click on the opposing box then it toggles the classes
@@ -38,7 +38,6 @@ const toggleDisplayVol = () => {
     toggleAll();
     TOGGLE = false;
   }
-  console.log(TOGGLE);
 };
 const bindClickVol = element => element.addEventListener("click", toggleDisplayVol);
 
@@ -51,7 +50,6 @@ const toggleDisplayOrg = () => {
     toggleAll();
     TOGGLE = true;
   }
-  console.log(TOGGLE);
 };
 const bindClickOrg = element => element.addEventListener("click", toggleDisplayOrg);
 
@@ -59,6 +57,9 @@ const bindClickOrg = element => element.addEventListener("click", toggleDisplayO
 const initSignUpForm = () => {
   const formSignUp = document.getElementById("cesar");
   if(formSignUp){
+    radioYes = document.getElementById("user_organization_true");
+    radioNo = document.getElementById("user_organization_false");
+    FIRST = true;
     bindClickOrg(radioYes);
     bindClickVol(radioNo);
   }
