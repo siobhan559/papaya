@@ -1,6 +1,7 @@
 class ChatroomsController < ApplicationController
   def index
-    # @chatrooms = Message.where()
+    @messages = Message.where(user: current_user)
+    @chatrooms = @messages.uniq(&:chatroom).map(&:chatroom)
   end
 
   def show
@@ -9,5 +10,8 @@ class ChatroomsController < ApplicationController
   end
 
   def create
+    @chatroom = Chatroom.new
+    @chatroom.save
+    redirect_to chatroom_path(@chatroom)
   end
 end
