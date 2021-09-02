@@ -14,8 +14,4 @@ class ChatroomsController < ApplicationController
     @chatroom.save
     redirect_to chatroom_path(@chatroom)
   end
-
-  def index
-    @chatrooms = Chatroom.all
-  end
 end
