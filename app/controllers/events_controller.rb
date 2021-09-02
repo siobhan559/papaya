@@ -2,13 +2,14 @@ class EventsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    if params[:query].present? && params[:query].reject(&:empty?).present?
-      @events = Event.search(params[:query])
+    if params[:search][:query].present? && params[:search][:query] != ""
+      @events = Event.search(params[:search][:query])
     else
       @events = Event.all
     end
     event_markers
-    filters
+    console
+    filters if params.dig(:filters, :category)&.reject(&:empty?)&.join(" ").present?
   end
 
   def show
@@ -59,38 +60,21 @@ class EventsController < ApplicationController
 
   def filters
     filters = params.dig(:filters, :category)&.reject(&:empty?)&.join(" ")
+    sort = params.dig(:filters, :date)
     if filters.present?
       @events = @events.search(filters)
-    else
-      @events = Event.all
     end
+
+    case sort
+    when "Earliest Date" then @events = @events.order(start_time: :asc)
+    when "Latest Date" then @events = @events.order(start_time: :desc)
+    else
+      @events
+    end
+
+    # if filters.nil? && params[:query].nil?
+    #   @events = Event.all
+    # end
   end
+
 end
-
-# if params[:search_query].nil?
-#       session[:search] = params.dig(:search, :query)
-#       if params[:search_query] == "" || params[:search_query].nil?
-#         @items = Item.all
-#       else
-#         @items = Item.where("name ILIKE ? or description ILIKE ? or category ILIKE ?",
-#                             "%#{session[:search]}%", "%#{session[:search]}%", "%#{session[:search]}%")
-#       end
-
-#       filters = params.dig(:filters, :category)
-#       if filters.present? && filters.reject(&:empty?).present?
-#         @items = @items.where(category: filters)
-#       end
-
-#       sort = params.dig(:filters, :price)
-#       case sort
-#       when "Highest first" then @items = @items.order(price: :desc)
-#       when "Lowest first" then @items = @items.order(price: :asc)
-#       else
-#         @items
-#       end
-#     elsif params[:search_query] == ""
-#       @items = Item.all
-#     else
-#       @items = Item.where("name ILIKE ? or description ILIKE ? or category ILIKE ?",
-#                             "%#{params[:search_query]}%", "%#{params[:search_query]}%", "%#{params[:search_query]}%")
-#     end
