@@ -1,5 +1,5 @@
 /* FOR MOBILE */
-@media(max-width: 600px) {
+@media(max-width: 700px) {
   #footer {
     background-color: $main;
     height: 100px;
@@ -17,11 +17,12 @@
       display: inline;
       justify-content: space-evenly;
     }
+
   }
 }
 
 /* FOR TABLET & DESKTOP */
-@media(min-width: 601px) {
+@media(min-width: 701px) {
   #footer {
     display: none;
   }
