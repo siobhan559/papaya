@@ -1,8 +1,13 @@
 class Event < ApplicationRecord
-  CATEGORY = [ 'Surf', 'Education', 'Animals', 'Community', 'Faith', 'Women', 'Shelters', 'LGBT', 'Food', 'Sport', 'Other' ]
+  CATEGORY = [ 'Health', 'Education', 'Animals', 'Community', 'Faith', 'Women', 'Shelter', 'LGBT', 'Food', 'Sport', 'Other' ]
   include PgSearch::Model
 
-  pg_search_scope :search, against: %i[address name category], using: { tsearch: { prefix: true } }
+  pg_search_scope :search, against: %i[address name category],
+                  using: { tsearch: {
+                    prefix: true,
+                    any_word: true
+                                    }
+                  }
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
