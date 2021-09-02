@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   def index
     # @events = Event.where('start_time > ?', DateTime.now)
-    if params[:query].present?
+    if params[:query].present? && params[:query].reject(&:empty?).present?
       @events = Event.search(params[:query])
     else
       @events = Event.all
@@ -28,7 +28,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to event_path(@event)
     else
-      # render :new
+      # render 'pages/profile'
     end
   end
 
@@ -48,8 +48,8 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:capacity, :description, :category,
+    params.require(:event).permit(:capacity, :name, :description, :category,
                                   :recurrence_times, :recurrence_frequency,
-                                  :address, :lat, :lon, :start_time, :end_time, :photo)
+                                  :address, :latitude, :longitude, :start_time, :end_time, :photo)
   end
 end
