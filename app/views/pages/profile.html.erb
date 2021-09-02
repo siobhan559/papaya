@@ -43,8 +43,14 @@
       </ul>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="upcoming" role="tabpanel" aria-labelledby="upcoming-tab">
+          <ul>
+            <% @upcoming.each do |event| %><li><% event %></li><% end %>
+          </ul>
         </div>
         <div class="tab-pane fade" id="past" role="tabpanel" aria-labelledby="past-tab">
+          <ul>
+            <% @past.each do |event| %><li><% event %></li><% end %>
+          </ul>
         </div>
         <div class="tab-pane fade" id="watchlist" role="tabpanel" aria-labelledby="create-tab">
         </div>
