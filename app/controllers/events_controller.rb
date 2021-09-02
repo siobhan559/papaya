@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   def index
     # @events = Event.where('start_time > ?', DateTime.now)
-    if params[:query].present?
+    if params[:query].present? && params[:query].reject(&:empty?).present?
       @events = Event.search(params[:query])
     else
       @events = Event.all
