@@ -1,7 +1,11 @@
 <div class="col-12">
   <h1>Events</h1>
-  <%= render 'shared/mapbox' %>
-  <%= render 'shared/filter-form' %>
+  <div class="col-12 col-md-8 col-lg-5 p-0">
+    <%= render 'shared/mapbox' %>
+  </div>
+  <div class="col-12 col-md-8 col-lg-7 p-0">
+    <%= render 'shared/filter-form' %>
+  </div>
   <ul>
     <% @events.each do |event| %>
       <li></li><%= render "shared/card-event", event: event %>

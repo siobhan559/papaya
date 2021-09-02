@@ -8,7 +8,6 @@ class EventsController < ApplicationController
       @events = Event.all
     end
     event_markers
-    console
     filters if params.dig(:filters, :category)&.reject(&:empty?)&.join(" ").present?
   end
 
