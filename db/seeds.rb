@@ -64,8 +64,8 @@ cooking = Event.create!(capacity: rand(1..20),
                         address: Faker::Address.full_address,
                         latitude: Faker::Address.latitude,
                         longitude: Faker::Address.longitude,
-                        start_time: DateTime.now + (1.0 / 24.0),
-                        end_time: DateTime.now + (2.0 / 24.0),
+                        start_time: DateTime.now + 10,
+                        end_time: DateTime.now + 11,
                         name: "Cook Together",
                         user: oxfam)
 attach_photo(cooking, 'https://images.unsplash.com/photo-1604332790652-b431be0cf9af?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y29va2luZyUyMHNjaG9vbHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60')
@@ -78,8 +78,8 @@ food_kitchen = Event.create(capacity: rand(1..20),
                             address: Faker::Address.full_address,
                             latitude: Faker::Address.latitude,
                             longitude: Faker::Address.longitude,
-                            start_time: DateTime.now + (1.0 / 24.0),
-                            end_time: DateTime.now + (2.0 / 24.0),
+                            start_time: DateTime.now + 9,
+                            end_time: DateTime.now + 10,
                             name: "Food Kitchen",
                             user: oxfam)
 attach_photo(food_kitchen, 'https://images.unsplash.com/photo-1591189863430-ab87e120f312?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80')
@@ -91,8 +91,8 @@ womens = Event.create(capacity: rand(1..20),
                       address: Faker::Address.full_address,
                       latitude: Faker::Address.latitude,
                       longitude: Faker::Address.longitude,
-                      start_time: DateTime.now + (1.0 / 24.0),
-                      end_time: DateTime.now + (2.0 / 24.0),
+                      start_time: DateTime.now + 3,
+                      end_time: DateTime.now + 4,
                       name: "Women's Shelter",
                       user: oxfam)
 attach_photo(womens, 'https://images.unsplash.com/photo-1504194921103-f8b80cadd5e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80')

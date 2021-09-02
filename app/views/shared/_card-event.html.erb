@@ -3,7 +3,7 @@
   <div class="index-card-info">
     <%= event.category %>
     <%= event.name %>
-    <%= event.start_time %> - <%= event.end_time %><h4>
+    <%= event.start_time.strftime("%A, %d %b %Y %l:%M %p") %> - <%= event.end_time.strftime("%A, %d %b %Y %l:%M %p") %><h4>
     <p><%= event.description %> </p>
   </div>
   <div>

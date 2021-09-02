@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
   CATEGORY = [ 'Health', 'Education', 'Animals', 'Community', 'Faith', 'Women', 'Shelter', 'LGBT', 'Food', 'Sport', 'Other' ]
+  DATE = ['Earliest Date', 'Latest Date']
   include PgSearch::Model
 
   pg_search_scope :search, against: %i[address name category],
