@@ -1,11 +1,23 @@
 /* FOR MOBILE */
 @media(max-width: 700px) {
   #footer {
-    background-color: #a5a3a3;
-    height: 10vh;
+    background-color: $main;
+    height: 100px;
     padding: 20px 50px;
-    position: sticky;
-    bottom: 0;
+    margin-top: 100px;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    i {
+      color: $cultured;
+      font-size: 40px;
+    }
+    li {
+      text-decoration: none;
+      display: inline;
+      justify-content: space-evenly;
+    }
+
   }
 }
 
@@ -14,4 +26,9 @@
   #footer {
     display: none;
   }
+}
+
+/* SO THE FOOTER DOESNT OVERLAP CONTENT */
+#body {
+  margin-bottom: 150px;
 }
