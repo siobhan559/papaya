@@ -1,12 +1,11 @@
 <h1>Events</h1>
 
 <%= render 'shared/mapbox' %>
+<%= render 'shared/filter-form' %>
 
 <ul>
   <% @events.each do |event| %>
     <li></li><%= render "shared/card-event", event: event %>
-    
+
   <% end %>
 </ul>
-
-

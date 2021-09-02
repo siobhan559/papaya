@@ -7,9 +7,9 @@ require 'open-uri'
 LOREM = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 puts "---------------------------------------------"
 puts "Cleaning database..."
-User.delete_all
-Event.delete_all
 Booking.delete_all
+Event.delete_all
+User.delete_all
 puts "🎉 Success!"
 puts "---------------------------------------------"
 
@@ -72,7 +72,7 @@ attach_photo(cooking, 'https://images.unsplash.com/photo-1604332790652-b431be0cf
 
 food_kitchen = Event.create(capacity: rand(1..20),
                             description: Faker::Movies::PrincessBride.quote,
-                            category: ["Food", "Shelter"],
+                            category: "Food Shelter",
                             recurrence_times: rand(1..4),
                             recurrence_frequency: ['days', 'weeks', 'months'].sample,
                             address: Faker::Address.full_address,
@@ -86,7 +86,7 @@ attach_photo(food_kitchen, 'https://images.unsplash.com/photo-1591189863430-ab87
 
 womens = Event.create(capacity: rand(1..20),
                       description: Faker::Movies::PrincessBride.quote,
-                      category: ["women", "shelter"],
+                      category: "women shelter",
                       recurrence_times: 1,
                       address: Faker::Address.full_address,
                       latitude: Faker::Address.latitude,
@@ -99,7 +99,7 @@ attach_photo(womens, 'https://images.unsplash.com/photo-1504194921103-f8b80cadd5
 
 bible = Event.create(capacity: rand(1..20),
                      description: Faker::Movies::PrincessBride.quote,
-                     category: ["faith", "education"],
+                     category: "faith education",
                      recurrence_times: rand(1..4),
                      recurrence_frequency: ['days', 'weeks', 'months'].sample,
                      address: Faker::Address.full_address,
