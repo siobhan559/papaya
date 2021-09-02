@@ -8,6 +8,15 @@
     position: fixed;
     bottom: 0px;
     width: 100%;
+    i {
+      color: $cultured;
+      font-size: 40px;
+    }
+    li {
+      text-decoration: none;
+      display: inline;
+      justify-content: space-evenly;
+    }
   }
 }
 
