@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+  CATEGORY = [ 'Surf', 'Education', 'Animals', 'Community', 'Faith', 'Women', 'Shelters', 'LGBT', 'Food', 'Sport', 'Other' ]
   include PgSearch::Model
 
   pg_search_scope :search, against: %i[address name category], using: { tsearch: { prefix: true } }
