@@ -13,10 +13,23 @@
     z-index: 1;
   }
 
+  .nav-btns {
+    display: flex;
+    .user-links {
+      display: flex;
+      position: absolute;
+      left: 40%;
+    }
+    .user-login {
+      position: absolute;
+      right: 0;
+    }
+  }
+
   .navbar-lewagon {
-    justify-content: space-between;
-    background: white;
-    opacity: 0.8;
+    // justify-content: space-between;
+    // background: white;
+    // opacity: 0.8;
 
   }
 
@@ -29,6 +42,6 @@
   }
 
   .nav-link {
-    color: $teal;
+    color: $main;
   }
 }
