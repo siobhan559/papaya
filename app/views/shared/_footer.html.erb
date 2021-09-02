@@ -6,8 +6,16 @@
     <li><%= link_to chatrooms_path do %>
       <i class="far fa-envelope"></i>
     <% end %></li>
-    <li><%= link_to profile_path(current_user.id) do %>
-      <i class="far fa-user"></i>
-    <% end %></li>
+
+    <% if current_user.nil? %>
+      <li><%= link_to new_user_session_path do %>
+        <i class="far fa-user"></i>
+      <% end %></li>
+    <% else %>
+      <li><%= link_to profile_path(current_user.id) do %>
+        <i class="far fa-user"></i>
+      <% end %></li>
+    <% end %>
+
   </ul>
 </div>
