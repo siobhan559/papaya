@@ -1,9 +1,13 @@
 <div class="row justify-content-center m-0">
-  <div class="col-12 col-md-8 col-lg-6 p-0">
+  <div class="col-12 p-0">
     <div class="show">
       <div class="picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @event.photo.key, height: 300, crop: :fill %>')">
       </div>
-      <div class="info shadow p-5 w-75 d-block ml-auto mr-auto">
+    </div>
+  </div>
+  <div class="col-12 col-md-8 col-lg-6 p-0">
+    <div class="show">
+      <div class="info shadow p-5">
         <div class="text-center">
           <h1><%= @event.name %></h1>
           <p><em><strong><%= @event.start_time.strftime('%b %e') %>:</strong> <%= @event.start_time.strftime('%l:%m %p') %>-<%= @event.end_time.strftime('%l:%m %p') %></em></p>
