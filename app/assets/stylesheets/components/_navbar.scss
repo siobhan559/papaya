@@ -11,26 +11,38 @@
     position: sticky;
     top: 0;
     z-index: 1;
+    background-color: $main;
   }
 
   .nav-btns {
     display: flex;
     .user-links {
       display: flex;
-      position: absolute;
-      left: 40%;
+      li {
+        &:hover {
+          text-decoration: none;
+          background-color: rgba(250,250,250,0.5);
+          border-radius: 10px;
+        }
+      }
     }
     .user-login {
       position: absolute;
-      right: 0;
+      right: 10px;
+      a {
+        &:hover {
+          text-decoration: none;
+          background-color: rgba(250,250,250,0.5);
+          border-radius: 10px;
+        }
+      }
     }
   }
 
   .navbar-lewagon {
     // justify-content: space-between;
     // background: white;
-    // opacity: 0.8;
-
+    // opacity: 0.8;x
   }
 
   .navbar-lewagon .navbar-collapse {
@@ -42,6 +54,14 @@
   }
 
   .nav-link {
-    color: $main;
+    color: $white;
+  }
+
+  .nav-item {
+    a {
+      &:hover {
+        color: white;
+      }
+    }
   }
 }
