@@ -1,5 +1,5 @@
 /* FOR MOBILE */
-@media(max-width: 600px) {
+@media(max-width: 700px) {
   #footer {
     background-color: #a5a3a3;
     height: 10vh;
@@ -10,7 +10,7 @@
 }
 
 /* FOR TABLET & DESKTOP */
-@media(min-width: 601px) {
+@media(min-width: 701px) {
   #footer {
     display: none;
   }
