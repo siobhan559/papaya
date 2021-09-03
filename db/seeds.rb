@@ -31,7 +31,18 @@ puts "Creating users..."
 volunteer_bio = "New to Papaya, but really excited to be part of an amazing community of likeminded people and events. New to London and really interested in helping out with my local community. I love food 🍔"
 organization_bio = "Looking for fun and motivated people, not afraid to throw themselves into the deepend! Let's fight injustice together 💪"
 
-helen = User.create(email: "helen@papaya.com",
+cesar = User.create(email: 'cesar@seed.com',
+                    password: 'password',
+                    first_name: 'Cesar',
+                    last_name: 'Ades',
+                    organization: false,
+                    bio: 'Learn to code, change your life!',
+                    age: 19,
+                    gender: 'male',
+                    religion: 'jewish')
+attach_photo(cesar, 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1234&q=80')
+
+helen = User.create(email: Faker::Internet.email,
                     password: 'password',
                     first_name: 'Helen',
                     last_name: 'Heart',
