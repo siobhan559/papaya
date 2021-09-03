@@ -117,8 +117,8 @@ main_event = Event.create!( capacity: 20,
                             recurrence_times: 4,
                             recurrence_frequency: 'weeks',
                             address: Faker::Address.full_address,
-                            latitude: 0.0724,
-                            longitude: 51.5734,
+                            latitude: 51.5734,
+                            longitude: 0.0724,
                             start_time: DateTime.now + 20,
                             end_time: DateTime.now + 31,
                             name: "Plastic-Free Hackney",
@@ -131,16 +131,16 @@ secondary_event = Event.create!(capacity: 10,
                                 recurrence_times: 2,
                                 recurrence_frequency: 'days',
                                 address: Faker::Address.full_address,
-                                latitude: 0.1655,
-                                longitude: 51.4722,
+                                latitude: 51.4722,
+                                longitude: 0.1655,
                                 start_time: DateTime.now + 20,
                                 end_time: DateTime.now + 31,
-                                name: "Battersea Dog Walk",
+                                name: "Hackney Dog Walk",
                                 user: battersea)
-attach_photo(secondary_event, 'https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80')
+attach_photo(secondary_event, 'https://images.unsplash.com/photo-1600354279787-0a726615ef44?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80')
 
-longitude = [51.4923, 51.4991, 51.5556, 51.6134, 51.3762, 51.5168, 51.5452, 51.6565, 51.4613, 51.5398]
-latitude = [0.0652, 0.1938, 0.1762, 0.2464, 0.0982, 0.4368, 0.0749, 0.3903, 0.1156, 0.1985]
+latitude = [51.4923, 51.4991, 51.5556, 51.6134, 51.3762, 51.5168, 51.5452, 51.6565, 51.4613, 51.5398]
+longitude = [0.0652, 0.1938, 0.1762, 0.2464, 0.0982, 0.4368, 0.0749, 0.3903, 0.1156, 0.1985]
 
 10.times do
   event = Event.create!(capacity: rand(1..20),
@@ -148,7 +148,7 @@ latitude = [0.0652, 0.1938, 0.1762, 0.2464, 0.0982, 0.4368, 0.0749, 0.3903, 0.11
                         category: ['Health', 'Education', 'Animals', 'Community', 'Children', 'Faith', 'Women', 'Shelters', 'LGBTQ', 'Sport', 'Food', 'Other'].sample,
                         recurrence_times: rand(1..4),
                         recurrence_frequency: ['days', 'weeks', 'months'].sample,
-                        address: Faker::Address.full_address,
+                        address: "#{rand(1..100)} Hackney Street, London",
                         latitude: latitude.sample,
                         longitude: longitude.sample,
                         start_time: DateTime.now + 10,
