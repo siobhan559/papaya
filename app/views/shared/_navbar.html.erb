@@ -1,46 +1,20 @@
- <div class="total-navbar">
-  <div class="navbar navbar-expand-sm navbar-lewagon">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-      <% end %>
+ <div class="navbar">
+  <ul>
+    <li><%= link_to root_path do %>
+      <i class="fas fa-home"></i>
+    <% end %></li>
+    <li><%= link_to chatrooms_path do %>
+      <i class="far fa-envelope"></i>
+    <% end %></li>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav">
-        <% if user_signed_in? %>
-          <div class="nav-btns">
-            <div class="user-links">
-              <li class="nav-item">
-                <%= link_to "Messages", chatrooms_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "Profile", profile_path(current_user), class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "Settings", "#", class: "nav-link" %>
-              </li>
-            </div>
-            <div class="user-login">
-              <li class="nav-item">
-                <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link" %>
-              </li>
-            </div>
-          </div>
-        <% else %>
-          <div class="user-signin">
-            <li class="nav-item">
-              <%= link_to "Log In", new_user_session_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item1">
-              <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
-            </li>
-          </div>
-        <% end %>
-      </ul>
-    </div>
-  </div>
+    <% if current_user.nil? %>
+      <li><%= link_to new_user_session_path do %>
+        <i class="far fa-user"></i>
+      <% end %></li>
+    <% else %>
+      <li><%= link_to profile_path(current_user.id) do %>
+        <i class="far fa-user"></i>
+      <% end %></li>
+    <% end %>
+  </ul>
 </div>
