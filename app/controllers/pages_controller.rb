@@ -5,6 +5,11 @@ class PagesController < ApplicationController
   end
 
   def profile
-    @event = Event.new
+    @profile = User.find(params[:id])
+    if @profile == current_user
+      @past = Event.where('start_time < ?', DateTime.now)
+      @upcoming = Event.where('start_time > ?', DateTime.now)
+      @event = Event.new if @profile.organization
+    end
   end
 end

@@ -1,6 +1,6 @@
 <div class="col-12 col-md-8 col-lg-6">
   <div class="p-5 shadow rounded">
-    <h1>Messages</h1>
+    <h1>My Messages</h1>
     <ul>
       <% @chatrooms.each do |chatroom| %>
         <li><%= link_to chatroom.other_user(current_user),  chatroom_path(chatroom) %></li>

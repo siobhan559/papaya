@@ -10,3 +10,15 @@
   bottom: -35vh;
   background-color: white;
 }
+
+#creator {
+  color: $teal;
+  text-decoration: none;
+  font-style: italic;
+  opacity: .9;
+  &:hover {
+    color: $teal;
+    text-decoration: none;
+    opacity: 1;
+  }
+}

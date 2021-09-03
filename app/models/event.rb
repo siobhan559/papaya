@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  CATEGORY = [ 'Health', 'Education', 'Animals', 'Community', 'Faith', 'Women', 'Shelter', 'LGBT', 'Food', 'Sport', 'Other' ]
+  CATEGORY = [ 'Health', 'Education', 'Animals', 'Community', 'Children', 'Faith', 'Women', 'Shelter', 'LGBT', 'Food', 'Sport', 'Other' ]
   DATE = ['Earliest Date', 'Latest Date']
   include PgSearch::Model
 

@@ -5,13 +5,17 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :photo
-  has_many :events, through: :bookings, as: :registered_events
-  has_many :events, as: :created_events, dependent: :destroy
   has_many :bookings, dependent: :destroy
+  has_many :events, dependent: :destroy
+  has_many :registered_events, through: :bookings, source: :event
 
   validate :volunteer, :organization?
 
   has_one_attached :photo, dependent: :destroy
+
+  def name
+    organization ? company_name.capitalize : "#{first_name.capitalize} #{last_name.capitalize}"
+  end
 
   private
 
