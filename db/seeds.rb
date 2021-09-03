@@ -28,6 +28,19 @@ end
 puts "---------------------------------------------"
 puts "Creating users..."
 
+cesar = User.create(email: 'cesar@seed.com',
+                    password: 'password',
+                    first_name: 'Cesar',
+                    last_name: 'Ades',
+                    organization: false,
+                    bio: 'Learn to code, change your life!',
+                    age: 19,
+                    gender: 'male',
+                    religion: 'jewish')
+attach_photo(cesar, 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1234&q=80')
+
+
+
 helen = User.create(email: Faker::Internet.email,
                     password: 'password',
                     first_name: 'Helen',
