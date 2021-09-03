@@ -6,10 +6,13 @@
     <div class="info">
       <div class="index-card-event">
         <div class="index-card-info">
-        <h2> <%= event.name %> </h2>
-        <p> <%= event.start_time.strftime("%A, %d %b %Y %l:%M %p") %> until <%= event.end_time.strftime("%A, %d %b %Y %l:%M %p") %> </p>
-        <p> <%= truncate(event.description, length:25, separator: ' ') %>
-        <p> <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="people"/> by <%= event.user.company_name %> </p>
+          <h2> <%= event.name %> </h2>
+          <div class="category">
+            <%= event.category %>
+          </div>
+          <p> <%= event.start_time.strftime("%A, %d %b %Y %l:%M %p") %> until <%= event.end_time. strftime("%A, %d %b %Y %l:%M %p") %> </p>
+          <p> <%= truncate(event.description, length:25, separator: ' ', omission: '.....see more') %>
+          <p> <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="people"/> by <%= event.user.company_name %> </p>
         </div>
       </div>
     </div>

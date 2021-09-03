@@ -38,5 +38,8 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initSignUpForm();
   initChatroomCable();
-  initMapbox();
+  setTimeout(() => {
+    initMapbox();
+
+  }, 300);
 });
