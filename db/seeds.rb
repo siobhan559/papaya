@@ -28,6 +28,9 @@ end
 puts "---------------------------------------------"
 puts "Creating users..."
 
+volunteer_bio = "New to Papaya, but really excited to be part of an amazing community of likeminded people and events. New to London and really interested in helping out with my local community. I love food 🍔"
+organization_bio = "Looking for fun and motivated people, not afraid to throw themselves into the deepend! Let's fight injustice together 💪"
+
 cesar = User.create(email: 'cesar@seed.com',
                     password: 'password',
                     first_name: 'Cesar',
@@ -39,25 +42,64 @@ cesar = User.create(email: 'cesar@seed.com',
                     religion: 'jewish')
 attach_photo(cesar, 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1234&q=80')
 
-
-
 helen = User.create(email: Faker::Internet.email,
                     password: 'password',
                     first_name: 'Helen',
                     last_name: 'Heart',
                     organization: false,
-                    bio: Faker::Movies::PrincessBride.quote,
+                    bio: volunteer_bio,
                     age: 21,
                     gender: 'female',
                     religion: 'athiest')
 attach_photo(helen, 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1234&q=80')
 
-oxfam = User.create(email: Faker::Internet.email,
+alex = User.create( email: "alex@papaya.com",
+                    password: 'password',
+                    first_name: 'Alex',
+                    last_name: 'Anchor',
+                    organization: false,
+                    bio: volunteer_bio,
+                    age: 35,
+                    gender: 'male',
+                    religion: 'athiest')
+attach_photo(alex, 'https://images.unsplash.com/photo-1587482283211-89bcb00079a8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=598&q=80')
+
+oxfam = User.create(email: "oxfam@papaya.com",
                     password: 'password',
                     company_name: 'Oxfam',
                     organization: true,
-                    bio: Faker::Movies::PrincessBride.quote)
-attach_photo(oxfam, 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80')
+                    bio: organization_bio)
+attach_photo(oxfam, 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
+
+crisis = User.create( email: "crisis@papaya.com",
+                      password: 'password',
+                      company_name: 'Crisis',
+                      organization: true,
+                      bio: organization_bio)
+attach_photo(crisis, 'https://images.unsplash.com/photo-1518398046578-8cca57782e17?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
+
+red_cross = User.create(email: "redcross@papaya.com",
+                        password: 'password',
+                        company_name: 'Red Cross',
+                        organization: true,
+                        bio: organization_bio)
+attach_photo(red_cross, 'https://images.unsplash.com/photo-1616679911721-eff6eec18fcd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80')
+
+cancer_research = User.create(email: "cancerresearch@papaya.com",
+                              password: 'password',
+                              company_name: 'Cancer Research',
+                              organization: true,
+                              bio: organization_bio)
+attach_photo(cancer_research, 'https://images.unsplash.com/photo-1567427018141-0584cfcbf1b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80')
+
+gosh = User.create( email: "gosh@papaya.com",
+                    password: 'password',
+                    company_name: 'Great Ormond Street',
+                    organization: true,
+                    bio: organization_bio)
+attach_photo(gosh, 'https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80')
+
+organizations = [oxfam, crisis, red_cross, cancer_research, gosh]
 
 puts "🎉 Success, users created!"
 puts "---------------------------------------------"
@@ -69,9 +111,24 @@ puts "---------------------------------------------"
 puts "---------------------------------------------"
 puts "Creating events..."
 
-cooking = Event.create!(capacity: rand(1..20),
-                        description: Faker::Movies::PrincessBride.quote,
-                        category: "Food",
+main_event = Event.create!( capacity: 20,
+                            description: "Plastic-Free Hackney Monthly Pollution Pick",
+                            category: 'Community',
+                            recurrence_times: 4,
+                            recurrence_frequency: 'weeks',
+                            address: Faker::Address.full_address,
+                            latitude: Faker::Address.latitude,
+                            longitude: Faker::Address.longitude,
+                            start_time: DateTime.now + 20,
+                            end_time: DateTime.now + 31,
+                            name: "Plastic-Free Hackney",
+                            user: crisis)
+attach_photo(main_event, 'https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80')
+
+20.times do
+  event = Event.create!(capacity: rand(1..20),
+                        description: Faker::Fantasy::Tolkien.poem,
+                        category: ['Health', 'Education', 'Animals', 'Community', 'Children', 'Faith', 'Women', 'Shelters', 'LGBTQ', 'Sport', 'Food', 'Other'].sample,
                         recurrence_times: rand(1..4),
                         recurrence_frequency: ['days', 'weeks', 'months'].sample,
                         address: Faker::Address.full_address,
@@ -79,50 +136,10 @@ cooking = Event.create!(capacity: rand(1..20),
                         longitude: Faker::Address.longitude,
                         start_time: DateTime.now + 10,
                         end_time: DateTime.now + 11,
-                        name: "Cook Together",
-                        user: oxfam)
-attach_photo(cooking, 'https://images.unsplash.com/photo-1604332790652-b431be0cf9af?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y29va2luZyUyMHNjaG9vbHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60')
-
-food_kitchen = Event.create(capacity: rand(1..20),
-                            description: Faker::Movies::PrincessBride.quote,
-                            category: "Food Shelter",
-                            recurrence_times: rand(1..4),
-                            recurrence_frequency: ['days', 'weeks', 'months'].sample,
-                            address: Faker::Address.full_address,
-                            latitude: Faker::Address.latitude,
-                            longitude: Faker::Address.longitude,
-                            start_time: DateTime.now + 9,
-                            end_time: DateTime.now + 10,
-                            name: "Food Kitchen",
-                            user: oxfam)
-attach_photo(food_kitchen, 'https://images.unsplash.com/photo-1591189863430-ab87e120f312?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80')
-
-womens = Event.create(capacity: rand(1..20),
-                      description: Faker::Movies::PrincessBride.quote,
-                      category: "women shelter",
-                      recurrence_times: 1,
-                      address: Faker::Address.full_address,
-                      latitude: Faker::Address.latitude,
-                      longitude: Faker::Address.longitude,
-                      start_time: DateTime.now + 3,
-                      end_time: DateTime.now + 4,
-                      name: "Women's Shelter",
-                      user: oxfam)
-attach_photo(womens, 'https://images.unsplash.com/photo-1504194921103-f8b80cadd5e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80')
-
-bible = Event.create(capacity: rand(1..20),
-                     description: Faker::Movies::PrincessBride.quote,
-                     category: "faith education",
-                     recurrence_times: rand(1..4),
-                     recurrence_frequency: ['days', 'weeks', 'months'].sample,
-                     address: Faker::Address.full_address,
-                     latitude: Faker::Address.latitude,
-                     longitude: Faker::Address.longitude,
-                     start_time: DateTime.now + (1.0 / 24.0),
-                     end_time: DateTime.now + (2.0 / 24.0),
-                     name: "Bible with Us",
-                     user: oxfam)
-attach_photo(bible, 'https://images.unsplash.com/photo-1504052434569-70ad5836ab65?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
+                        name: Faker::Book.title,
+                        user: organizations.sample)
+  attach_photo(event, 'https://source.unsplash.com/random')
+end
 
 puts "🎉 Success, events created!"
 puts "---------------------------------------------"
