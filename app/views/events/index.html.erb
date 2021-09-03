@@ -1,12 +1,12 @@
-<h1>Events</h1>
 <div class= "main-container">
-  <div class="col-12 col-lg-5">
+  <h1>Upcoming Events</h1>
+  <div class="col-12 col-lg-12">
     <%= render 'shared/mapbox' %>
   </div>
-  <div class="col-12 col-lg-11">
+  <div class="col-12 col-lg-12">
     <%= render 'shared/filter-form' %>
   </div>
-  <div class="col-12 col-lg-11">
+  <div class="col-12 col-lg-12">
     <div class="index-card-container">
       <% @events.each do |event| %>
         <%= render "shared/card-event", event: event %>
