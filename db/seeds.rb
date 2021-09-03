@@ -78,12 +78,12 @@ crisis = User.create( email: "crisis@papaya.com",
                       bio: organization_bio)
 attach_photo(crisis, 'https://images.unsplash.com/photo-1518398046578-8cca57782e17?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
 
-red_cross = User.create(email: "redcross@papaya.com",
+battersea = User.create(email: "battersea@papaya.com",
                         password: 'password',
-                        company_name: 'Red Cross',
+                        company_name: 'Battersea Dogs Home',
                         organization: true,
                         bio: organization_bio)
-attach_photo(red_cross, 'https://images.unsplash.com/photo-1616679911721-eff6eec18fcd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80')
+attach_photo(battersea, 'https://images.unsplash.com/photo-1616679911721-eff6eec18fcd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80')
 
 cancer_research = User.create(email: "cancerresearch@papaya.com",
                               password: 'password',
@@ -99,7 +99,7 @@ gosh = User.create( email: "gosh@papaya.com",
                     bio: organization_bio)
 attach_photo(gosh, 'https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80')
 
-organizations = [oxfam, crisis, red_cross, cancer_research, gosh]
+organizations = [oxfam, crisis, battersea, cancer_research, gosh]
 
 puts "🎉 Success, users created!"
 puts "---------------------------------------------"
@@ -117,23 +117,40 @@ main_event = Event.create!( capacity: 20,
                             recurrence_times: 4,
                             recurrence_frequency: 'weeks',
                             address: Faker::Address.full_address,
-                            latitude: Faker::Address.latitude,
-                            longitude: Faker::Address.longitude,
+                            latitude: 0.0724,
+                            longitude: 51.5734,
                             start_time: DateTime.now + 20,
                             end_time: DateTime.now + 31,
                             name: "Plastic-Free Hackney",
                             user: crisis)
 attach_photo(main_event, 'https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80')
 
-20.times do
+secondary_event = Event.create!(capacity: 10,
+                                description: "Being there for animals in need",
+                                category: 'Animals',
+                                recurrence_times: 2,
+                                recurrence_frequency: 'days',
+                                address: Faker::Address.full_address,
+                                latitude: 0.1655,
+                                longitude: 51.4722,
+                                start_time: DateTime.now + 20,
+                                end_time: DateTime.now + 31,
+                                name: "Battersea Dog Walk",
+                                user: battersea)
+attach_photo(secondary_event, 'https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80')
+
+longitude = [51.4923, 51.4991, 51.5556, 51.6134, 51.3762, 51.5168, 51.5452, 51.6565, 51.4613, 51.5398]
+latitude = [0.0652, 0.1938, 0.1762, 0.2464, 0.0982, 0.4368, 0.0749, 0.3903, 0.1156, 0.1985]
+
+10.times do
   event = Event.create!(capacity: rand(1..20),
                         description: Faker::Fantasy::Tolkien.poem,
                         category: ['Health', 'Education', 'Animals', 'Community', 'Children', 'Faith', 'Women', 'Shelters', 'LGBTQ', 'Sport', 'Food', 'Other'].sample,
                         recurrence_times: rand(1..4),
                         recurrence_frequency: ['days', 'weeks', 'months'].sample,
                         address: Faker::Address.full_address,
-                        latitude: Faker::Address.latitude,
-                        longitude: Faker::Address.longitude,
+                        latitude: latitude.sample,
+                        longitude: longitude.sample,
                         start_time: DateTime.now + 10,
                         end_time: DateTime.now + 11,
                         name: Faker::Book.title,
