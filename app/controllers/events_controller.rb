@@ -2,13 +2,15 @@ class EventsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    if params[:search][:query].present? && params[:search][:query] != ""
-      @events = Event.search(params[:search][:query])
+    search = params.dig(:search, :query) || session[:search]
+    if search.present? && search != ""
+      session[:search] = search
+      @events = Event.search(search)
     else
       @events = Event.all
     end
     event_markers
-    filters if params.dig(:filters, :category)&.reject(&:empty?)&.join(" ").present?
+    filters if params.dig(:filters, :category)&.reject(&:empty?)&.join(" ").present? || params.dig(:filters, :date)
   end
 
   def show
@@ -63,10 +65,9 @@ class EventsController < ApplicationController
     if filters.present?
       @events = @events.search(filters)
     end
-
     case sort
-    when "Earliest Date" then @events = @events.order(start_time: :asc)
-    when "Latest Date" then @events = @events.order(start_time: :desc)
+    when "Earliest Date" then @events = @events.reorder(start_time: :asc)
+    when "Latest Date" then @events = @events.reorder(start_time: :desc)
     else
       @events
     end

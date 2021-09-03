@@ -4,8 +4,8 @@
 
     <% if params[:filters] != nil %>
       <%= simple_form_for :filters, url: events_path, defaults: { required: false }, method: :get do |f| %>
-      <%= f.input :category, collection: Event::CATEGORY, as: :check_boxes, checked: params[:filters][:category], label: 'Choose Category:'%>
-      <%= f.input :date, collection: Event::DATE , as: :radio_buttons, checked: params[:filters][:date], label: 'Sort by Date:' %>
+      <%= f.input :category, collection: Event::CATEGORY, as: :check_boxes, checked: params[:filters][:category], label: 'Choose Category:', input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+      <%= f.input :date, collection: Event::DATE , as: :radio_buttons, checked: params[:filters][:date], label: 'Sort by Date:', input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
 
       <%= f.button :submit, class: "btn btn-flat" %>
 
@@ -13,8 +13,8 @@
 
   <% else %>
     <%= simple_form_for :filters, url: events_path, defaults: { required: false }, method: :get do |f| %>
-      <%= f.input :category, collection: Event::CATEGORY, as: :check_boxes, label: 'Choose Category:'%>
-      <%= f.input :date, collection: Event::DATE , as: :radio_buttons, label: 'Sort by Date:' %>
+      <%= f.input :category, collection: Event::CATEGORY, as: :check_boxes, label: 'Choose Category:', input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+      <%= f.input :date, collection: Event::DATE , as: :radio_buttons, label: 'Sort by Date:', input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
 
       <%= f.button :submit, class: "btn btn-flat" %>
 
