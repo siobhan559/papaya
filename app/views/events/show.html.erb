@@ -16,9 +16,9 @@
       <p><strong>Address: </strong><%= @event.address %></p>
       <div class="register-form justify-content-center d-flex mb-2">
         <% if @booking.pending.nil? %>
-          <%= render 'shared/form-booking', event: @event, booking: @booking %>
-        <% elsif @booking.pending %>
-          <h3>Your booking is pending</h3>
+          <%= link_to 'Register', event_bookings_path(@event), method: :post, class: 'btn btn-flat btn-block' %>
+        <%# elsif @booking.pending %>
+          <%# <h3>Your booking is pending</h3> %>
         <% else %>
           <%= link_to 'Unregister', event_booking_path(@event, @booking), method: :delete, class: 'btn btn-flat btn-block' %>
         <% end %>
