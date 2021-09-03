@@ -26,21 +26,23 @@
   margin-top: 15px;
   font-size: 26px;
   font-weight: bold;
+  margin: 0px;
 }
 
 .user-card-info p {
   color: $coffee;
   font-size: 18px;
-  margin-top: 18px;
-  margin-bottom: 0px;
+  margin: 0px;
 }
 
-.category{
-  padding: 4px;
-  border: 2px solid $teal;
+.category {
+  display: inline-block;
+  font-size: 0.7rem;
+  border-radius: 50rem;
+  padding: 0.1rem 0.5rem;
+  background-color: $cultured;
   color: $teal;
-  border-radius: 12px;
-  margin-bottom: 6px;
+  border: 1px solid $teal;
 }
 
 .date {
@@ -54,4 +56,5 @@
   align-items: flex-start;
   justify-content: space-evenly;
   flex: 3;
+  padding: 18px 0px;
 }
