@@ -151,8 +151,8 @@ longitude = [0.0652, 0.1938, 0.1762, 0.2464, 0.0982, 0.4368, 0.0749, 0.3903, 0.1
                         address: "#{rand(1..100)} Hackney Street, London",
                         latitude: latitude.sample,
                         longitude: longitude.sample,
-                        start_time: DateTime.now + 10,
-                        end_time: DateTime.now + 11,
+                        start_time: DateTime.now + 30,
+                        end_time: DateTime.now + 41,
                         name: Faker::Book.title,
                         user: organizations.sample)
   attach_photo(event, 'https://source.unsplash.com/random')
