@@ -5,6 +5,6 @@ class Chatroom < ApplicationRecord
   def other_user(current)
     both = users.uniq
     other = both.reject { |user| user == current }.first
-    other ? (other.first_name || other.company_name) : 'New Message'
+    other ? other.name : 'New Message'
   end
 end
