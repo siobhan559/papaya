@@ -26,7 +26,11 @@
       flex-grow: 1;
       text-align: center;
     }
-
+  }
+  .page {
+    margin: 0px;
+    margin-bottom: 10vh;
+    justify-content: center;
   }
 }
 
@@ -35,11 +39,8 @@
   #footer {
     display: none;
   }
-}
-
-/* SO THE FOOTER DOESNT OVERLAP CONTENT */
-.page {
-  margin: 0px;
-  margin-bottom: 10vh;
-  justify-content: center;
+  .page {
+    margin: 0px;
+    justify-content: center;
+  }
 }
