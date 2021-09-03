@@ -1,6 +1,4 @@
-<%#= link_to 'Back', :back, class: 'btn btn-ghost' %>
-
-<div class="col-12 col-md-8 col-lg-6">
+<div class="col-12 col-md-8 col-lg-6 p-0">
   <% if @profile == current_user %>
     <% if @profile.organization %>
       <ul class="nav list-inline tabs-underlined" id="myTab" role="tablist">
@@ -69,7 +67,7 @@
         </div>
         <div class="tab-pane fade" id="upcoming" role="tabpanel" aria-labelledby="upcoming-tab">
           <ul>
-            <% @upcoming.each do |event| %> 
+            <% @upcoming.each do |event| %>
             <%= render"shared/card-event-profile", event: event %>
             <% end %>
           </ul>
