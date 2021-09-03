@@ -21,6 +21,10 @@
   transition: background 0.3s ease;
 }
 
+.btn-thin {
+  padding: 2px 24px !important;
+}
+
 .btn-flat:hover {
   color: $white;
   opacity: 1;
