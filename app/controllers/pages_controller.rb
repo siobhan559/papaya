@@ -15,7 +15,7 @@ class PagesController < ApplicationController
         @upcoming = Event.where('start_time > ?', DateTime.now)
       end
     else
-      # @chatroom = Chatroom.new
+      @chatroom = Chatroom.new
       if @profile.organization
       else
       end
