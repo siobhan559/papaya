@@ -13,6 +13,10 @@ class User < ApplicationRecord
 
   has_one_attached :photo, dependent: :destroy
 
+  def name
+    organization ? company_name.capitalize : "#{first_name.capitalize} #{last_name.capitalize}"
+  end
+
   private
 
   def volunteer
