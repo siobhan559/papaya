@@ -100,9 +100,23 @@ puts "---------------------------------------------"
 puts "---------------------------------------------"
 puts "Creating events..."
 
+main_event = Event.create!( capacity: 20,
+                            description: "Plastic-Free Hackney Monthly Pollution Pick",
+                            category: 'Community',
+                            recurrence_times: 4,
+                            recurrence_frequency: 'weeks',
+                            address: Faker::Address.full_address,
+                            latitude: Faker::Address.latitude,
+                            longitude: Faker::Address.longitude,
+                            start_time: DateTime.now + 20,
+                            end_time: DateTime.now + 31,
+                            name: "Plastic-Free Hackney",
+                            user: crisis)
+attach_photo(main_event, 'https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80')
+
 20.times do
   event = Event.create!(capacity: rand(1..20),
-                        description: "Really great event to help out your local community",
+                        description: Faker::Fantasy::Tolkien.poem,
                         category: ['Health', 'Education', 'Animals', 'Community', 'Children', 'Faith', 'Women', 'Shelters', 'LGBTQ', 'Sport', 'Food', 'Other'].sample,
                         recurrence_times: rand(1..4),
                         recurrence_frequency: ['days', 'weeks', 'months'].sample,
