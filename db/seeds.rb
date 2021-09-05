@@ -4,9 +4,10 @@ require 'open-uri'
 ##################################
 #####    Seed The Program    #####
 ##################################
-LOREM = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 puts "---------------------------------------------"
 puts "Cleaning database..."
+Message.delete_all
+Chatroom.delete_all
 Booking.delete_all
 Event.delete_all
 User.delete_all
@@ -28,6 +29,7 @@ end
 puts "---------------------------------------------"
 puts "Creating users..."
 
+default_user_image = 'https://i.imgur.com/WxNkK7J.jpg'
 volunteer_bio = "New to Papaya, but really excited to be part of an amazing community of likeminded people and events. New to London and really interested in helping out with my local community. I love food 🍔"
 organization_bio = "Looking for fun and motivated people, not afraid to throw themselves into the deepend! Let's fight injustice together 💪"
 
@@ -36,11 +38,11 @@ cesar = User.create(email: 'cesar@seed.com',
                     first_name: 'Cesar',
                     last_name: 'Ades',
                     organization: false,
-                    bio: 'Learn to code, change your life!',
+                    bio: volunteer_bio,
                     age: 19,
                     gender: 'male',
                     religion: 'jewish')
-attach_photo(cesar, 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1234&q=80')
+attach_photo(cesar, default_user_image)
 
 helen = User.create(email: Faker::Internet.email,
                     password: 'password',
@@ -53,15 +55,15 @@ helen = User.create(email: Faker::Internet.email,
                     religion: 'athiest')
 attach_photo(helen, 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1234&q=80')
 
-alex = User.create( email: "alex@papaya.com",
-                    password: 'password',
-                    first_name: 'Alex',
-                    last_name: 'Anchor',
-                    organization: false,
-                    bio: volunteer_bio,
-                    age: 35,
-                    gender: 'male',
-                    religion: 'athiest')
+alex = User.create(email: "alex@papaya.com",
+                   password: 'password',
+                   first_name: 'Alex',
+                   last_name: 'Anchor',
+                   organization: false,
+                   bio: volunteer_bio,
+                   age: 35,
+                   gender: 'male',
+                   religion: 'athiest')
 attach_photo(alex, 'https://images.unsplash.com/photo-1587482283211-89bcb00079a8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=598&q=80')
 
 oxfam = User.create(email: "oxfam@papaya.com",
@@ -71,11 +73,11 @@ oxfam = User.create(email: "oxfam@papaya.com",
                     bio: organization_bio)
 attach_photo(oxfam, 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
 
-eco_guys = User.create( email: "crisis@papaya.com",
-                      password: 'password',
-                      company_name: 'Crisis',
-                      organization: true,
-                      bio: organization_bio)
+eco_guys = User.create(email: "crisis@papaya.com",
+                       password: 'password',
+                       company_name: 'Crisis',
+                       organization: true,
+                       bio: organization_bio)
 attach_photo(eco_guys, 'https://images.unsplash.com/photo-1518398046578-8cca57782e17?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
 
 battersea = User.create(email: "battersea@papaya.com",
@@ -92,11 +94,11 @@ cancer_research = User.create(email: "cancerresearch@papaya.com",
                               bio: organization_bio)
 attach_photo(cancer_research, 'https://images.unsplash.com/photo-1567427018141-0584cfcbf1b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80')
 
-gosh = User.create( email: "gosh@papaya.com",
-                    password: 'password',
-                    company_name: 'Great Ormond Street',
-                    organization: true,
-                    bio: organization_bio)
+gosh = User.create(email: "gosh@papaya.com",
+                   password: 'password',
+                   company_name: 'Great Ormond Street',
+                   organization: true,
+                   bio: organization_bio)
 attach_photo(gosh, 'https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80')
 
 organizations = [oxfam, eco_guys, battersea, cancer_research, gosh]
@@ -111,18 +113,18 @@ puts "---------------------------------------------"
 puts "---------------------------------------------"
 puts "Creating events..."
 
-main_event = Event.create!( capacity: 20,
-                            description: "Looking for a motivated and enthusiastic individual to help clean up our Hackney streets!",
-                            category: 'Environment',
-                            recurrence_times: 4,
-                            recurrence_frequency: 'weeks',
-                            address: Faker::Address.full_address,
-                            latitude: 51.5734,
-                            longitude: 0.0724,
-                            start_time: DateTime.now + 20,
-                            end_time: DateTime.now + 31,
-                            name: "Plastic-Free Hackney",
-                            user: eco_guys)
+main_event = Event.create!(capacity: 20,
+                           description: "Looking for a motivated and enthusiastic individual to help clean up our Hackney streets!",
+                           category: 'Environment',
+                           recurrence_times: 4,
+                           recurrence_frequency: 'weeks',
+                           address: Faker::Address.full_address,
+                           latitude: 51.5734,
+                           longitude: 0.0724,
+                           start_time: DateTime.now + 20,
+                           end_time: DateTime.now + 31,
+                           name: "Plastic-Free Hackney",
+                           user: eco_guys)
 attach_photo(main_event, 'https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80')
 
 secondary_event = Event.create!(capacity: 10,
