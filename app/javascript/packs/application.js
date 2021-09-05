@@ -28,6 +28,7 @@ import "bootstrap";
 import { initChatroomCable } from '../channels/chatroom_channel';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initSignUpForm } from '../components/init_signupform';
+import { filterListener } from "../components/filter_btn"
 
 
 // Internal imports, e.g:
@@ -37,6 +38,7 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initSignUpForm();
+  filterListener();
   initChatroomCable();
   setTimeout(() => {
     initMapbox();

@@ -1,25 +1,27 @@
 <div class= "filter-card">
 
-  <h3> Filter results by: </h3>
+  <a class="btn btn-flat btn-block" id="filter-toggle">Filter Results</a>
+
+  <div id="hide" class="hidden-filters">
+    <h3> Filter results by: </h3>
 
     <% if params[:filters] != nil %>
       <%= simple_form_for :filters, url: events_path, defaults: { required: false }, method: :get do |f| %>
-      <%= f.input :category, collection: Event::CATEGORY, as: :check_boxes, checked: params[:filters][:category], label: 'Choose Category:', input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
-      <%= f.input :date, collection: Event::DATE , as: :radio_buttons, checked: params[:filters][:date], label: 'Sort by Date:', input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+        <%= f.input :category, collection: Event::CATEGORY, as: :check_boxes, checked: params[:filters][:category], label: 'Choose Category:', input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+        <%= f.input :date, collection: Event::DATE , as: :radio_buttons, checked: params[:filters][:date], label: 'Sort by Date:', input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
 
-      <%= f.button :submit, class: "btn btn-flat" %>
+        <%= f.button :submit, class: "btn btn-flat" %>
 
+      <% end %>
+
+    <% else %>
+      <%= simple_form_for :filters, url: events_path, defaults: { required: false }, method: :get do |f| %>
+        <%= f.input :category, collection: Event::CATEGORY, as: :check_boxes, label: 'Choose Category:', input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+        <%= f.input :date, collection: Event::DATE , as: :radio_buttons, label: 'Sort by Date:', input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+
+        <%= f.button :submit, class: "btn btn-flat" %>
+
+      <% end %>
     <% end %>
-
-  <% else %>
-    <%= simple_form_for :filters, url: events_path, defaults: { required: false }, method: :get do |f| %>
-      <%= f.input :category, collection: Event::CATEGORY, as: :check_boxes, label: 'Choose Category:', input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
-      <%= f.input :date, collection: Event::DATE , as: :radio_buttons, label: 'Sort by Date:', input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
-
-      <%= f.button :submit, class: "btn btn-flat" %>
-
-    <% end %>
-  <% end %>
-
-
+  </div>
 </div>

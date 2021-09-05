@@ -6,6 +6,13 @@
   <div class="col-12 col-lg-12">
     <%= render 'shared/filter-form' %>
   </div>
+  <div class="text-center">
+    <% if @events.count == 1 %>
+      <p><%= @events.count %> event found</p>
+    <% else %>
+      <p><%= @events.count %> events found</p>
+    <% end %>
+  </div>
   <div class="col-12 col-lg-12">
     <div class="index-card-container">
       <% @events.each do |event| %>
