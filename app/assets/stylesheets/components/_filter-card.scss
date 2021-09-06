@@ -22,7 +22,7 @@
 .tag-selector + label {
   cursor: pointer;
   display: inline-block;
-  font-size: 0.7rem;
+  font-size: 1rem;
   border-radius: 50rem;
   padding: 0.1rem 0.5rem;
   background-color: $cultured;
@@ -39,4 +39,21 @@
 
 .hidden-filters {
   display: none;
+}
+
+#hide {
+  padding-top: 5px;
+  text-align: center;
+}
+
+.submit-btn {
+  background-color: $teal;
+  color: white;
+  border-radius: 50px;
+  padding: 8px 48px;
+  opacity: 0.9;
+  &:hover {
+    color: white;
+    opacity: 1;
+  }
 }
