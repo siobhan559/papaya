@@ -1,0 +1,46 @@
+.chatroom-container {
+  border: 1px solid rgba(0,0,0,0.3);
+  margin-top: 20px;
+  border-radius: 20px;
+  width: 70vh;
+  text-align: center;
+  position: relative;
+}
+
+.back-btn {
+  a {
+    position: absolute;
+    z-index: 10;
+    left: 20px;
+    top: 10px;
+  }
+}
+
+.direct-messages {
+  position: relative;
+}
+
+.current-user-content {
+  background-color: $main;
+  border-radius: 20px;
+  width: fit-content;
+  padding: 0px 20px;
+  position: absolute;
+  left: 0;
+  margin-left: 10px;
+}
+
+.other-user-content {
+  background-color: $timberwolf;
+  border-radius: 20px;
+  width: fit-content;
+  padding: 0px 20px;
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+}
+
+.author {
+  display: flex;
+  flex-direction: column;
+}
