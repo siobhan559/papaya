@@ -1,7 +1,6 @@
 class ChatroomsController < ApplicationController
   def index
-    @messages = Message.where(user: current_user)
-    @chatrooms = @messages.uniq(&:chatroom).map(&:chatroom)
+    @chatrooms = Chatroom.all.select { |chatroom| chatroom.exist_with?(current_user, current_user) }
   end
 
   def show
@@ -10,8 +9,7 @@ class ChatroomsController < ApplicationController
   end
 
   def create
-    @chatroom = Chatroom.new
-    @chatroom.save
+    @chatroom = Chatroom.create(invitee: User.find(params[:invitee]), owner: current_user)
     redirect_to chatroom_path(@chatroom)
   end
 end
