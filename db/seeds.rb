@@ -29,7 +29,7 @@ end
 puts "---------------------------------------------"
 puts "Creating users..."
 
-default_user_image = 'https://i.imgur.com/WxNkK7J.jpg'
+default_user_image = 'https://www.pngitem.com/pimgs/m/22-223968_default-profile-picture-circle-hd-png-download.png'
 volunteer_bio = "New to Papaya, but really excited to be part of an amazing community of likeminded people and events. New to London and really interested in helping out with my local community. I love food 🍔"
 organization_bio = "Looking for fun and motivated people, not afraid to throw themselves into the deepend! Let's fight injustice together 💪"
 

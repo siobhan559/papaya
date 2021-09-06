@@ -1,10 +1,5 @@
 class Chatroom < ApplicationRecord
   has_many :messages
-  has_many :users, through: :messages
-
-  def other_user(current)
-    both = users.uniq
-    other = both.reject { |user| user == current }.first
-    other ? other.name : 'New Message'
-  end
+  belongs_to :owner, class_name: "User"
+  belongs_to :invitee, class_name: "User"
 end
