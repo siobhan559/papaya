@@ -3,7 +3,7 @@
     <h1>My Messages</h1>
     <ul class="list-unstyled">
       <% @chatrooms.each do |chatroom| %>
-        <li><%= link_to chatroom.other_user(current_user),  chatroom_path(chatroom), class: 'btn btn-flat btn-thin' %></li>
+        <li><%= link_to chatroom.other(current_user),  chatroom_path(chatroom), class: 'btn btn-flat btn-thin' %></li>
       <% end %>
     </ul>
   </div>

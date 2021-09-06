@@ -92,7 +92,11 @@
         </div>
         <div class="d-flex justify-content-center align-items-center">
           <%= link_to 'Follow', '#',  class: 'btn btn-flat btn-thin' %>
-          <%= link_to 'Message', chatrooms_path, method: :post, class: 'btn btn-flat btn-thin' %>
+          <% if @chatroom %>
+            <%= link_to 'Message', chatroom_path(@chatroom), class: 'btn btn-flat btn-thin' %>
+          <% else %>
+            <%= link_to 'Start Messaging', chatrooms_path(invitee: @profile), method: :post, class: 'btn btn-flat btn-thin' %>
+          <% end %>
         </div>
         <div class="bio shadow p-4 rounded mt-3">
           <p class="m-0"><strong>Bio:</strong> <%= @profile.bio %></p>
@@ -108,7 +112,11 @@
         </div>
         <div class="d-flex justify-content-center align-items-center">
           <%= link_to 'Follow', '#',  class: 'btn btn-flat btn-thin' %>
-          <%= link_to 'Message', chatrooms_path, method: :post, class: 'btn btn-flat btn-thin' %>
+          <% if @chatroom %>
+            <%= link_to 'Message', chatroom_path(@chatroom), class: 'btn btn-flat btn-thin' %>
+          <% else %>
+            <%= link_to 'Start Messaging', chatrooms_path(invitee: @profile), method: :post, class: 'btn btn-flat btn-thin' %>
+          <% end %>
         </div>
         <div class="bio shadow p-4 rounded mt-3">
           <p class="m-0"><strong>Bio:</strong> <%= @profile.bio %></p>
