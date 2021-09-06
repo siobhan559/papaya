@@ -11,7 +11,8 @@
     </div>
     <%= f.input :description, as: :text, wrapper_html: { class: "input-box" }, placeholder: "Tell us more!" %>
     <%= f.input :photo, as: :file, wrapper_html: { class: "input-box" } %>
-    <%= f.input :category, as: :check_boxes, collection: Event::CATEGORY, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item'%>
+    <%= f.input :category, as: :radio_buttons, collection: Event::CATEGORY, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item'%>
+
     <%= f.submit class: "btn btn-flat" %>
   <% end %>
 </div>
