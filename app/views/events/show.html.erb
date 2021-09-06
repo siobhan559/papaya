@@ -14,15 +14,26 @@
       </div>
       <p class="mt-3"><%= @event.description %></p>
       <p><strong>Address: </strong><%= @event.address %></p>
-      <div class="register-form justify-content-center d-flex mb-2">
-        <% if @booking.pending.nil? %>
-          <%= link_to 'Register', event_bookings_path(@event), method: :post, class: 'btn btn-flat btn-block' %>
-        <%# elsif @booking.pending %>
-          <%# <h3>Your booking is pending</h3> %>
-        <% else %>
-          <%= link_to 'Unregister', event_booking_path(@event, @booking), method: :delete, class: 'btn btn-flat btn-block' %>
-        <% end %>
-      </div>
+      <% if current_user == @event.user %>
+        <ul>
+          <% @event.bookings.each do |booking| %>
+            <li>
+              <%= booking.user.name %>
+              <%= (link_to 'Confirm', event_booking_path(@event, booking), method: :patch, class: 'btn btn-flat btn-thin' ) if booking.pending  %>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <div class="register-form justify-content-center d-flex mb-2">
+          <% if @booking.pending.nil? %>
+            <%= link_to 'Register', event_bookings_path(@event), method: :post, class: 'btn btn-flat btn-block' %>
+          <% elsif @booking.pending %>
+            <h3>Your booking is pending</h3>
+          <% else %>
+            <%= link_to 'Unregister', event_booking_path(@event, @booking), method: :delete, class: 'btn btn-flat btn-block' %>
+          <% end %>
+        </div>
+      <% end %>
       <div class="justify-content-center d-flex">
         <%= link_to "Go Back", :back, class: 'btn btn-ghost btn-block' %>
       </div>
