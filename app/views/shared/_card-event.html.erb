@@ -1,5 +1,5 @@
 <%= link_to event_path(event) do %>
-  <div class="index-card" >
+  <div class="index-card">
     <div class="picture">
       <%= cl_image_tag event.photo.key, alt: '#' %>
     </div>
@@ -10,8 +10,7 @@
           <div class="category">
             <%= event.category %>
           </div>
-          <p> <%= event.start_time.strftime("%A, %d %b %Y %l:%M %p") %> until <%= event.end_time. strftime("%A, %d %b %Y %l:%M %p") %> </p>
-          <p> <%= truncate(event.description, length:25, separator: ' ', omission: '.....see more') %>
+          <p> <%= event.start_time.strftime("%a, %d %b %l:%M %p") %> until <%= event.end_time. strftime("%a, %d %b %l:%M %p") %> </p>
           <p> <%= cl_image_tag event.user.photo.key, alt: '#' %> by <%= event.user.company_name %> </p>
         </div>
       </div>
