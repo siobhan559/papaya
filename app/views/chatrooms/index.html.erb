@@ -1,9 +1,12 @@
-<div class="col-12 col-md-8 col-lg-6">
-  <div class="p-5 shadow rounded-pill mt-5 text-center">
+<div class="">
+  <div class="container">
     <h1>My Messages</h1>
-    <ul class="list-unstyled">
+    <ul class="message-card">
       <% @chatrooms.each do |chatroom| %>
-        <li><%= link_to chatroom.other(current_user),  chatroom_path(chatroom), class: 'btn btn-flat btn-thin' %></li>
+        <%= link_to chatroom_path(chatroom) do %>
+          <%= cl_image_tag chatroom.other(current_user).photo.key, class: 'message-image'%>
+          <%= chatroom.other(current_user).name %>
+        <% end %>
       <% end %>
     </ul>
   </div>

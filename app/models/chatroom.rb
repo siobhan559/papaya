@@ -8,7 +8,7 @@ class Chatroom < ApplicationRecord
     (owner == user1 || invitee == user1) && (owner == user2 || invitee == user2)
   end
 
-  def other(current)
-    owner == current ? invitee.name : owner.name
+  def other(user)
+    owner == user ? invitee : owner
   end
 end

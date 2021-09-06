@@ -1,0 +1,23 @@
+.message-card {
+  border: 1px solid $main;
+  display: flex;
+  align-items: center;
+  font-weight: bolder;
+  a {
+    color: black;
+    opacity: 0.7;
+    &:hover {
+      text-decoration: none;
+      opacity: 1;
+    }
+  }
+}
+
+.message-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+  margin: 10px;
+}
