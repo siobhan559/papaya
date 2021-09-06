@@ -14,4 +14,11 @@ class BookingsController < ApplicationController
     @booking.delete
     redirect_to event_path(@event), alert: "You've unregistered for this event"
   end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @event = Event.find(params[:event_id])
+    @booking.update(pending: false)
+    redirect_to event_path(@event)
+  end
 end
