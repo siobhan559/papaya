@@ -1,6 +1,9 @@
 <div class="message-container">
   <div class="container">
     <h1>My Messages</h1>
+    <% if @chatrooms == [] %>
+      <p>Woops! You haven't created any messages yet!</p>
+    <% else %>
       <% @chatrooms.each do |chatroom| %>
         <%= link_to chatroom_path(chatroom) do %>
           <div class="message-card">
@@ -18,5 +21,6 @@
           </div>
         <% end %>
       <% end %>
+    <% end %>
   </div>
 </div>
