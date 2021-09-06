@@ -25,7 +25,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to event_path(@event)
     else
-      # render 'pages/profile'
+      render "pages/profile"
     end
   end
 
@@ -45,9 +45,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:capacity, :name, :description, :category,
-      :recurrence_times, :recurrence_frequency,
-      :address, :latitude, :longitude, :start_time, :end_time, :photo)
+    params.require(:event).permit(:capacity, :name, :description, :category, :address, :start_time, :end_time, :photo)
   end
 
   def event_markers
