@@ -29,6 +29,7 @@ import { initChatroomCable } from '../channels/chatroom_channel';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initSignUpForm } from '../components/init_signupform';
 import { filterListener } from "../components/filter_btn"
+import { initFlatpickr } from "../plugins/flatpickr";
 
 
 // Internal imports, e.g:
@@ -44,4 +45,5 @@ document.addEventListener('turbolinks:load', () => {
     initMapbox();
 
   }, 300);
+  initFlatpickr();
 });
