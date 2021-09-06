@@ -1,23 +1,18 @@
-<div class= "main-container">
+<div class="col-12 text-center py-3 px-0">
   <h1>Upcoming Events</h1>
-  <div class="col-12 col-lg-12">
-    <%= render 'shared/mapbox' %>
-  </div>
-  <div class="col-12 col-lg-12">
-    <%= render 'shared/filter-form' %>
-  </div>
+</div>
+<div class="col-12 col-lg-4 pr-0 px-4">
+  <%= render 'shared/mapbox' %>
+</div>
+<div class="col-12 col-lg-8 px-0">
+  <%= render 'shared/filter-form' %>
   <div class="text-center">
-    <% if @events.count == 1 %>
-      <p><%= @events.count %> event found</p>
-    <% else %>
-      <p><%= @events.count %> events found</p>
-    <% end %>
+    <%= pluralize @events.count, 'event' %> found
   </div>
-  <div class="col-12 col-lg-12">
-    <div class="index-card-container">
-      <% @events.each do |event| %>
-        <%= (render "shared/card-event", event: event) if (event.capacity - event.bookings.count > 0) %>
-      <% end %>
-    </div>
+  <div class="card-container">
+    <% @events.each do |event| %>
+      <%= (render "shared/card-small", event: event) if (event.capacity - event.bookings.count > 0) %>
+      <%= (render "shared/card-large", event: event) if (event.capacity - event.bookings.count > 0) %>
+    <% end %>
   </div>
 </div>
