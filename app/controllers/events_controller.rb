@@ -39,7 +39,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    redirect_to :back
+    redirect_back(fallback_location: events_path)
   end
 
   private

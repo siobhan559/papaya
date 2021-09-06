@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  CATEGORY = [ 'Health', 'Education', 'Animals', 'Community', 'Children', 'Environment', 'Faith', 'Women', 'Shelter', 'LGBT', 'Food', 'Sport', 'Other' ]
+  CATEGORY = %w[Health Education Animals Community Children Environment Faith Women Shelter LGBT Food Sport Other]
   DATE = ['Earliest Date', 'Latest Date']
   include PgSearch::Model
 
@@ -14,8 +14,8 @@ class Event < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
 
   belongs_to :user
-  has_many :users, through: :bookings
   has_many :bookings, dependent: :destroy
+  has_many :users, through: :bookings
   has_one_attached :photo
 
   validates :capacity, numericality: { only_integer: true, greater_than: 0 }
