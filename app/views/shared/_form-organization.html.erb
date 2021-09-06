@@ -6,8 +6,8 @@
     <%= f.input :longitude %>
     <%= f.input :description %>
     <%= f.input :category, collection: ['Health', 'Education', 'Animals', 'Community', 'Children', 'Faith', 'Environment', 'Women', 'Shelters', 'LGBTQ', 'Sport', 'Food', 'Other'] %>
-    <%= f.input :start_time %>
-    <%= f.input :end_time %>
+    <%= f.input :start_time, as: :string, required: false, input_html: {class: "datepicker"} %>
+    <%= f.input :end_time, as: :string, required: false, input_html: {class: "datepicker"} %>
     <%= f.input :address %>
     <%= f.input :recurrence_times %>
     <%= f.input :recurrence_frequency, collection: ['Days', 'Months', 'Years'] %>
