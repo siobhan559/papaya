@@ -18,7 +18,8 @@
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
           <div class="d-flex justify-content-center">
-            <%= cl_image_tag @profile.photo.key, crop: :fill, radius: 100, class: 'w-50 mt-2'%>
+            <% image_url = @profile.photo.attached? ? @profile.photo.key : 'https://www.pngitem.com/pimgs/m/22-223968_default-profile-picture-circle-hd-png-download.png' %>
+            <%= cl_image_tag image_url, crop: :fill, radius: 100, class: 'w-20 h-20 mt-2'%>
           </div>
           <div class="text-center mt-2">
             <h1><%= @profile.name %></h1>
@@ -57,7 +58,8 @@
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
           <div class="d-flex justify-content-center">
-            <%= cl_image_tag @profile.photo.key, crop: :fill, radius: 100, class: 'w-50 mt-2'%>
+            <% image_url = @profile.photo.attached? ? @profile.photo.key : 'https://www.pngitem.com/pimgs/m/22-223968_default-profile-picture-circle-hd-png-download.png' %>
+            <%= cl_image_tag image_url, crop: :fill, radius: 100, class: 'w-25 h-25 mt-2'%>
           </div>
           <div class="text-center mt-2">
             <h1><%= @profile.name %></h1>
