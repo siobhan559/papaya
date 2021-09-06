@@ -1,10 +1,22 @@
-<div class="col-12 col-md-8 col-lg-6">
-  <div class="p-5 shadow rounded-pill mt-5 text-center">
+<div class="message-container">
+  <div class="container">
     <h1>My Messages</h1>
-    <ul class="list-unstyled">
       <% @chatrooms.each do |chatroom| %>
-        <li><%= link_to chatroom.other(current_user),  chatroom_path(chatroom), class: 'btn btn-flat btn-thin' %></li>
+        <%= link_to chatroom_path(chatroom) do %>
+          <div class="message-card">
+            <%= cl_image_tag chatroom.other(current_user).photo.key, class: 'message-image' %>
+            <h5><%= chatroom.other(current_user).name %></h5>
+            <div class="message-info">
+              <% if ( ( Time.now - chatroom.created_at ) / 60 ) < 60 %>
+                <p>Just now</p>
+              <% elsif ( ( Time.now - chatroom.created_at ) / 60 ) >= 60 && ( ( Time.now - chatroom.created_at ) / 60 ) < 1440 %>
+                <p><%= ( ( ( Time.now - chatroom.created_at ) / 60 ) / 60 ).round() %> hours ago</p>
+              <% else %>
+                <p><%= ( ( ( ( Time.now - chatroom.created_at ) / 60 ) / 60 ) / 24 ).round() %> days ago</p>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
       <% end %>
-    </ul>
   </div>
 </div>

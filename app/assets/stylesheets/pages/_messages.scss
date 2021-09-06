@@ -1,0 +1,52 @@
+.message-card {
+  border: 1px solid $main;
+  background-color: $cultured;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 60vh;
+  color: $coffee;
+  opacity: 1;
+  position: relative;
+  &:hover {
+    background-color: rgba(246,140,107, 0.6);
+  }
+  h5 {
+    font-weight: bolder;
+  }
+}
+
+.message-info {
+  position: absolute;
+  right: 10px;
+  top: 25px;
+  p {
+    font-size: smaller;
+  }
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.message-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+  margin: 10px;
+}
+
+.message-container {
+  border: 1px solid rgba(58,51,53, 0.4);
+  box-shadow: 1px 1px 1px rgba(58,51,53,0.1);
+  border-radius: 20px;
+  text-align: center;
+  margin-top: 20px;
+  padding: 15px;
+}
