@@ -22,7 +22,7 @@ class Event < ApplicationRecord
   validates :description, length: { minimum: 10 }
   validates :name, presence: true
   validates :address, presence: true
-  validates :latitude, :longitude, numericality: true
+  # validates :latitude, :longitude, numericality: true
   validates :start_time, :end_time, presence: true
   validate :past?, :positive_time?
 
