@@ -38,6 +38,7 @@ import { initFlatpickr } from "../plugins/flatpickr";
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initFlatpickr();
   initSignUpForm();
   filterListener();
   initChatroomCable();
@@ -45,5 +46,4 @@ document.addEventListener('turbolinks:load', () => {
     initMapbox();
 
   }, 300);
-  initFlatpickr();
 });
