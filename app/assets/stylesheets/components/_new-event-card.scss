@@ -5,13 +5,14 @@
 }
 
 .input-box {
-  padding: 0px 20px 0px 20px;
+  padding: 5px;
+  justify-content: space-evenly;
 }
 
 .inline {
   display: flex;
-  justify-content: space-around;
-  padding-right: 10px;
+  justify-content: space-evenly;
+  padding: 5px;
 }
 
 .tag-item {
