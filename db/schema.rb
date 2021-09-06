@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_06_085940) do
+ActiveRecord::Schema.define(version: 2021_09_06_133616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,8 +59,6 @@ ActiveRecord::Schema.define(version: 2021_09_06_085940) do
     t.integer "capacity"
     t.string "description"
     t.string "category"
-    t.integer "recurrence_times"
-    t.string "recurrence_frequency"
     t.string "address"
     t.float "latitude"
     t.float "longitude"
