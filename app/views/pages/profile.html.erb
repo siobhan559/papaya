@@ -114,7 +114,11 @@
           <h1><%= @profile.name %></h1>
         </div>
         <div class="d-flex justify-content-center align-items-center">
-          <%= link_to 'Follow', '#',  class: 'btn btn-flat btn-thin' %>
+          <% if @following %>
+            <%= link_to 'Unfollow', unfollow_user_path, method: :unfollow,  class: 'btn btn-flat btn-thin' %>
+          <% else %>
+            <%= link_to 'Follow', follow_user_path, method: :follow,  class: 'btn btn-flat btn-thin' %>
+          <% end %>
           <% if @chatroom %>
             <%= link_to 'Message', chatroom_path(@chatroom), class: 'btn btn-flat btn-thin' %>
           <% else %>
@@ -134,7 +138,11 @@
           <h1><%= @profile.name %></h1>
         </div>
         <div class="d-flex justify-content-center align-items-center">
-          <%= link_to 'Follow', '#',  class: 'btn btn-flat btn-thin' %>
+          <% if @following %>
+            <%= link_to 'Unfollow', unfollow_user_path, method: :unfollow,  class: 'btn btn-flat btn-thin' %>
+          <% else %>
+            <%= link_to 'Follow', follow_user_path, method: :follow,  class: 'btn btn-flat btn-thin' %>
+          <% end %>
           <% if @chatroom %>
             <%= link_to 'Message', chatroom_path(@chatroom), class: 'btn btn-flat btn-thin' %>
           <% else %>
