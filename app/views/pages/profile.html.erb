@@ -107,7 +107,9 @@
         </div>
         <div class="tab-pane fade" id="following" role="tabpanel" aria-labelledby="following-tab">
           <div class="card-container">
-           ...
+          <% @profile.following.each do |follow| %>
+            <%= follow.company_name %>
+          <% end %>
           </div>
         </div>
       </div>
