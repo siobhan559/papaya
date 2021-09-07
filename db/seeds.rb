@@ -126,7 +126,7 @@ main_event = Event.create!(capacity: 20,
 attach_photo(main_event, 'https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80')
 
 secondary_event = Event.create!(capacity: 10,
-                                description: "Looking for a happy, joyful individual to come the bin men of East London",
+                                description: "Looking for a happy, joyful individual to come and help the bin men of East London",
                                 category: 'Environment',
                                 address: Faker::Address.full_address,
                                 latitude: 51.4722,

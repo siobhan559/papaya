@@ -3,8 +3,11 @@
   margin-top: 20px;
   border-radius: 20px;
   width: 70vh;
+  height: 75vh;
   text-align: center;
   position: relative;
+  padding: 5px;
+  overflow: auto;
 }
 
 .back-btn {
@@ -23,14 +26,12 @@
 .current-user-content {
   background-color: $main;
   border-radius: 20px;
-  // width: fit-content;
   padding: 0px 20px;
 }
 
 .other-user-content {
   background-color: $timberwolf;
   border-radius: 20px;
-  // width: fit-content;
   padding: 0px 20px;
 }
 
@@ -42,4 +43,8 @@
 .message-box {
   position: fixed;
   bottom: 10%;
+  // border: 1px solid black;
+  // padding-top: 20px;
+  width: 95.6%;
+  // background-color: white;
 }
