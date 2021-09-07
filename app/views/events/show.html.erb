@@ -15,7 +15,6 @@
           <% else %>
             <i class="far fa-star"></i>
           <% end %>
-          <% console %>
         <% end %>
         <p class="my-1"><em><strong><%= @event.start_time.strftime('%b %e') %>:</strong> <%= @event.start_time.strftime('%l:%m %p') %>-<%= @event.end_time.strftime('%l:%m %p') %></em></p>
         <%= link_to "Organized by: #{@event.user.name}", profile_path(@event.user), id: 'creator' %>
