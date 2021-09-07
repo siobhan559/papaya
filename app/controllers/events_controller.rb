@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
   skip_before_action :authenticate_user!
+  before_action :authenticate_user!, only: :toggle_favorite
+
 
   def index
     search = params.dig(:search, :query) || session[:search]
@@ -19,9 +21,14 @@ class EventsController < ApplicationController
     @booking = @booking.empty? ? Booking.new : @booking[0]
   end
 
+  def toggle_favorite
+    @event = Event.find(params[:id])
+    current_user.favorited?(@event) ? current_user.unfavorite(@event) : current_user.favorite(@event)
+    redirect_to @event
+  end
+
   def create
     @event = Event.new(event_params)
-    raise
     @event.user = current_user
     if @event.save
       redirect_to event_path(@event)

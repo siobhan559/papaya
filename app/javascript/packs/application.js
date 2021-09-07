@@ -47,3 +47,5 @@ document.addEventListener('turbolinks:load', () => {
 
   }, 300);
 });
+
+import "controllers"

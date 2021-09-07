@@ -2,6 +2,8 @@ class Event < ApplicationRecord
   CATEGORY = %w[Health Education Animals Community Children Environment Faith Women Shelter LGBT Food Sport Other]
   DATE = ['Earliest Date', 'Latest Date']
 
+  acts_as_favoritable
+
   include PgSearch::Model
 
   pg_search_scope :search, against: %i[address name category],

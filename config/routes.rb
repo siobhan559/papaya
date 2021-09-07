@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get 'profile/:id', to: "pages#profile", as: :profile
   resources :events, only: %i[index show create update destroy] do
     resources :bookings, only: %i[create destroy update]
+    member do
+      post 'toggle_favorite', to: "events#toggle_favorite"
+    end
   end
   resources :chatrooms, only: %i[index show create] do
     resources :messages, only: :create
