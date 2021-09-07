@@ -5,7 +5,7 @@
       <p>Woops! You haven't created any messages yet!</p>
     <% else %>
       <% @chatrooms.each do |chatroom| %>
-        <%= link_to chatroom_path(chatroom) do %>
+        <%= link_to chatroom_path(chatroom, anchor: "message-#{chatroom.messages.last.id}" ) do %>
           <div class="message-card">
             <%= cl_image_tag chatroom.other(current_user).photo.key, class: 'message-image' %>
             <h5><%= chatroom.other(current_user).name %></h5>
