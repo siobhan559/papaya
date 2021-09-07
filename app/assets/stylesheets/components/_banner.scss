@@ -5,6 +5,19 @@
     background-position: center;
     background-size: cover;
     height: 90vh;
+    flex-direction: column;
+    padding: 0;
+    position: relative;
+    img {
+      width: 33%;
+      position: relative;
+      top: 15px;
+      left: 15px;
+    }
+    .search-container {
+      position: relative;
+      top: 35vh;
+    }
   }
 }
 /* FOR TABLET */
@@ -16,6 +29,12 @@
     position: relative;
     overflow: hidden;
     padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      display: none;
+    }
   }
 
   .banner:before {
