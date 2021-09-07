@@ -16,31 +16,30 @@
   }
 }
 
-.direct-messages {
-  position: relative;
-}
+// .direct-messages {
+//   position: relative;
+// }
 
 .current-user-content {
   background-color: $main;
   border-radius: 20px;
-  width: fit-content;
+  // width: fit-content;
   padding: 0px 20px;
-  position: absolute;
-  left: 0;
-  margin-left: 10px;
 }
 
 .other-user-content {
   background-color: $timberwolf;
   border-radius: 20px;
-  width: fit-content;
+  // width: fit-content;
   padding: 0px 20px;
-  position: absolute;
-  right: 0;
-  margin-right: 10px;
 }
 
 .author {
   display: flex;
   flex-direction: column;
+}
+
+.message-box {
+  position: fixed;
+  bottom: 10%;
 }

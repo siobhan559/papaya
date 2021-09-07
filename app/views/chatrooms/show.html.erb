@@ -2,7 +2,7 @@
   <div class="back-btn">
     <%= link_to 'Back', chatrooms_path %>
   </div>
-  <div class="col-12 col-md-8 col-lg-6">
+  <div>
     <h1><%= @chatroom.other(current_user).name %></h1>
     <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
       <% @chatroom.messages.each do |message| %>
@@ -10,8 +10,10 @@
       <% end %>
     </div>
 
-    <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-      <%= f.input :content, label: false, autofocus: true, placeholder: "Message here..." %>
-    <% end %>
+    </div>
   </div>
+    <div class='message-box'>
+      <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+        <%= f.input :content, label: false, autofocus: true, placeholder: "Message here..." %>
+      <% end %>
 </div>

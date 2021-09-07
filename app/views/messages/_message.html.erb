@@ -1,19 +1,25 @@
-<div class="" id="message-<%= message.id %>">
-  <i class="author">
+<div class="w-100" id="message-<%= message.id %>">
+  <div>
+    <i class="author">
+      <% if message.user == current_user %>
+        <span class='d-flex justify-content-start'><%= message.user.first_name %></span>
+      <% else %>
+        <span class='d-flex justify-content-end'><%= message.user.first_name %></span>
+      <% end %>
+      <% if message.user == current_user %>
+        <span class='d-flex justify-content-start'><small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+      <% else %>
+        <span class='d-flex justify-content-end'><small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+      <% end %>
+    </i>
     <% if message.user == current_user %>
-      <p><small>You</small></p>
+      <div class="d-flex justify-content-start">
+        <p class='current-user-content mb-0'><%= message.content %></p>
+      </div>
     <% else %>
-      <span><%= message.user.first_name %></span>
+      <div class="d-flex justify-content-end">
+        <p class='other-user-content mb-0'><%= message.content %></p>
+      </div>
     <% end %>
-    <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-  </i>
-  <% if message.user == current_user %>
-    <div class="current-user-content">
-      <p><%= message.content %></p>
-    </div>
-  <% else %>
-    <div class="other-user-content">
-      <p><%= message.content %></p>
-    </div>
-  <% end %>
+  </div>
 </div>
