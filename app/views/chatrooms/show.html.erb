@@ -1,10 +1,10 @@
 <div class="chatroom-container">
   <div class="back-btn">
-    <%= link_to 'Back', chatrooms_path %>
+    <%= link_to 'Go Back', chatrooms_path %>
   </div>
   <div>
     <div>
-      <h1><%= @chatroom.other(current_user).name %></h1>
+      <h1 class='pt-5 pb-2'><%= @chatroom.other(current_user).name %></h1>
       <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
         <% @chatroom.messages.each do |message| %>
           <%= render "/messages/message", message: message %>
