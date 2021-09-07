@@ -22,3 +22,13 @@
     opacity: 1;
   }
 }
+
+.icons {
+  float: right;
+  margin: -30px -25px -10px 0px;
+}
+
+.show .fa-star {
+  color: $teal;
+  font-size: 30px;
+}
