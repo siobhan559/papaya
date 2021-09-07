@@ -6,7 +6,7 @@
     <div>
       <h1 class='pt-5 pb-2'><%= @chatroom.other(current_user).name %></h1>
       <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-        <% @chatroom.messages.each do |message| %>
+        <% @chatroom.messages.includes([:user]).each do |message| %>
           <%= render "/messages/message", message: message %>
         <% end %>
       </div>

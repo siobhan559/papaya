@@ -2,14 +2,13 @@ class EventsController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :authenticate_user!, only: :toggle_favorite
 
-
   def index
     search = params.dig(:search, :query) || session[:search]
     if search.present? && search != ""
       session[:search] = search
-      @events = Event.search(search)
+      @events = Event.includes([user: {photo_attachment: :blob}, photo_attachment: :blob]).search(search)
     else
-      @events = Event.all
+      @events = Event.includes([user: {photo_attachment: :blob}, photo_attachment: :blob])
     end
     event_markers
     filters if params.dig(:filters, :category)&.reject(&:empty?)&.join(" ").present? || params.dig(:filters, :date)
