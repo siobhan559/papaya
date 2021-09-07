@@ -3,7 +3,7 @@ import consumer from "./consumer";
 const initChatroomCable = () => {
   const messagesContainer = document.getElementById('messages');
   if (messagesContainer) {
-    // messagesContainer.scrollTo(document.getElementById('bottom'));
+    // location.hash = "#" + hash;
     const id = messagesContainer.dataset.chatroomId;
 
     consumer.subscriptions.create({ channel: "ChatroomChannel", id: id }, {
