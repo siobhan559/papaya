@@ -45,9 +45,15 @@
   padding: 0px 15px;
 }
 
-.author {
+.other-user-author {
   display: flex;
-  flex-direction: row;
+  justify-content: end;
+}
+
+.author {
+  display: inline;
+  // justify-content: end;
+  // flex-direction: row;
 }
 
 .message-box {
