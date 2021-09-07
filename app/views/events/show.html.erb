@@ -7,8 +7,7 @@
 <div class="col-12 col-md-8 col-lg-6 p-0">
   <div class="show">
     <div class="info shadow p-5">
-      <div class="text-center">
-        <h1 class="mb-3"><%= @event.name %></h1>
+      <div class="icons">
         <%= link_to toggle_favorite_event_path(@event), remote: true, method: :post do%>
           <% if current_user.favorited?(@event) %>
             <i class="fas fa-star"></i>
@@ -16,6 +15,9 @@
             <i class="far fa-star"></i>
           <% end %>
         <% end %>
+      </div>
+      <div class="text-center">
+        <h1 class="mb-3"><%= @event.name %></h1>
         <p class="my-1"><em><strong><%= @event.start_time.strftime('%b %e') %>:</strong> <%= @event.start_time.strftime('%l:%m %p') %>-<%= @event.end_time.strftime('%l:%m %p') %></em></p>
         <%= link_to "Organized by: #{@event.user.name}", profile_path(@event.user), id: 'creator' %>
       </div>
