@@ -4,6 +4,9 @@ class PagesController < ApplicationController
   def home
   end
 
+  def about
+  end
+
   def profile
     @profile = User.find(params[:id])
     if @profile == current_user

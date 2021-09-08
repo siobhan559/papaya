@@ -42,16 +42,16 @@
       <% else %>
         <div class="register-form justify-content-center d-flex mb-2">
           <% if @booking.pending.nil? %>
-            <%= link_to 'Register', event_bookings_path(@event), method: :post, class: 'btn btn-flat btn-block' %>
+            <%= link_to 'Register', event_bookings_path(@event), method: :post, class: 'btn btn-flat btn-block m-0' %>
           <% elsif @booking.pending %>
-            <%= link_to 'Your registration is pending', event_booking_path(@event, @booking), method: :delete, class: 'btn btn-flat btn-block' %>
+            <%= link_to 'Your registration is pending', event_booking_path(@event, @booking), method: :delete, class: 'btn btn-flat btn-block m-0' %>
           <% else %>
-            <%= link_to 'Unregister', event_booking_path(@event, @booking), method: :delete, class: 'btn btn-flat btn-block' %>
+            <%= link_to 'Unregister', event_booking_path(@event, @booking), method: :delete, class: 'btn btn-flat btn-block m-0' %>
           <% end %>
         </div>
       <% end %>
       <div class="justify-content-center d-flex">
-        <%= link_to "Go Back", events_path, class: 'btn btn-ghost btn-block' %>
+        <%= link_to "Go Back", events_path, class: 'btn btn-ghost btn-block m-0' %>
       </div>
     </div>
   </div>
