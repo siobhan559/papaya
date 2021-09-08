@@ -3,7 +3,7 @@
     <div class="image" style="background-image: url('<%= cl_image_path event.photo.key %>')"></div>
     <div class="card-info">
       <h3><%= event.name %></h3>
-      <p><%= event.start_time.strftime("%m/%d/%Y") %></p>
+      <p><small>on</small> <%= event.start_time.strftime("%d/%m/%Y") %></p>
       <p><%= cl_image_tag event.user.photo.key, alt: '#', class: 'avatar' %> <em>by <%= event.user.company_name %></em></p>
       <div class="category"><%= event.category %></div>
     </div>

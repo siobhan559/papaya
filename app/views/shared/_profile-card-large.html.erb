@@ -6,6 +6,6 @@
       <p><%= cl_image_tag event.user.photo.key, alt: '#', class: 'avatar' %> <em>by <%= event.user.company_name %></em></p>
       <div class="category"><%= event.category %></div>
     </div>
-    <div class="card-date"><%= event.start_time.strftime("%m/%d/%Y") %></div>
+    <div class="card-date"><small>on</small> <%= event.start_time.strftime("%d/%m/%Y") %></div>
   </div>
 <% end %>
