@@ -32,13 +32,6 @@
             <div class="bio shadow p-4 rounded mt-3">
               <p class="m-0"><%= @profile.bio %></p>
             </div>
-            <div class="card-container">
-              <p>upcoming</p>
-              <% @upcoming_organized.each do |event| %>
-                <%= (render "shared/card-small", event: event) %>
-                <%= (render "shared/profile-card-large", event: event) %>
-              <% end %>
-            </div>
           </div>
           <div class='logout'>
             <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'logout-btn' %>
@@ -76,7 +69,7 @@
           <a class="tab-underlined" id="past-tab" data-toggle="tab" href="#past" role="tab" aria-controls="past" aria-selected="false">Past</a>
         </li>
         <li class="nav-item" role="presentation">
-          <a class="tab-underlined" id="favorited-tab" data-toggle="tab" href="#favorited" role="tab" aria-controls="favorited" aria-selected="favorited">Favourited</a>
+          <a class="tab-underlined" id="favorited-tab" data-toggle="tab" href="#favorited" role="tab" aria-controls="favorited" aria-selected="favorited">Favorites</a>
         </li>
         <li class="nav-item" role="presentation">
           <a class="tab-underlined" id="following-tab" data-toggle="tab" href="#following" role="tab" aria-controls="following" aria-selected="following">Following</a>
