@@ -1,0 +1,5 @@
+meta_product_name: "Papaya"
+meta_title: "Papaya - We rise by lifting others"
+meta_description: "Find volunteering, charity and fundraising events in your local community."
+meta_image: "logo.png" # should exist in `app/assets/images/`
+twitter_account: "@LeWagonLondon"   # required for Twitter Cards
