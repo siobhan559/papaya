@@ -16,7 +16,7 @@ class PagesController < ApplicationController
       @past_organized = @profile.events.select { |event| event.start_time < DateTime.now }
       @event = Event.new if @profile.organization
     else
-      @chatroom = Chatroom.all.find { |chatroom| chatroom.exist_with?(@profile, current_user) }
+      @chatroom = Chatroom.includes(%i[owner invitee]).find { |chatroom| chatroom.exist_with?(@profile, current_user) }
       @following = current_user.following.find { |user| user == @profile }.present?
     end
   end
