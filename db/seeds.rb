@@ -42,7 +42,35 @@ cesar = User.create(email: 'cesar@seed.com',
                     age: 19,
                     gender: 'male',
                     religion: 'jewish')
-attach_photo(cesar, default_user_image)
+attach_photo(cesar, "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80")
+
+siobhan = User.create(email: 'siobhan@seed.com',
+                    password: 'password',
+                    first_name: 'Siobhan',
+                    last_name: 'Brown',
+                    organization: false,
+                    bio: "I live in London and am looking to get more involved in the community around me. Particularly interested in helping out with anything food related, also looking after the environment.",
+                    age: 30)
+attach_photo(siobhan, "https://images.unsplash.com/photo-1582610285985-a42d9193f2fd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=668&q=80")
+
+george = User.create(email: 'george@seed.com',
+                    password: 'password',
+                    first_name: 'George',
+                    last_name: 'Kelly',
+                    organization: false,
+                    bio: "Hi, I'm George. I'm from East London and have been tired of seeing litter all over the streets around my house, so I'm especially interested in finding events near me to organise a clean up!",
+                    age: 28)
+attach_photo(george, "https://images.unsplash.com/photo-1583864697784-a0efc8379f70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80")
+
+daniella = User.create(email: 'daniella@seed.com',
+                    password: 'password',
+                    first_name: 'Daniella',
+                    last_name: 'Fernandes',
+                    organization: false,
+                    bio: "Can't wait to get involved in some of these events, and meet people near me who want to make London a better place!",
+                    age: 28,
+                    gender: 'female')
+attach_photo(daniella, "https://images.unsplash.com/photo-1491349174775-aaafddd81942?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80")
 
 helen = User.create(email: Faker::Internet.email,
                     password: 'password',
@@ -65,6 +93,13 @@ alex = User.create(email: "alex@papaya.com",
                    gender: 'male',
                    religion: 'athiest')
 attach_photo(alex, 'https://images.unsplash.com/photo-1587482283211-89bcb00079a8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=598&q=80')
+
+foodcycle = User.create(email: "foodcycle@papaya.com",
+                    password: 'password',
+                    company_name: 'Food Cycle',
+                    organization: true,
+                    bio: "We aim to make food poverty, loneliness and food waste a thing of the past for every community. Week in, week out we nourish the hungry and lonely in our communities with delicious meals and great conversation, using food which would otherwise go to waste.")
+attach_photo(oxfam, 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
 
 oxfam = User.create(email: "oxfam@papaya.com",
                     password: 'password',
@@ -143,7 +178,7 @@ longitude = [0.0652, 0.1938, 0.1762, 0.2464, 0.0982, 0.4368, 0.0749, 0.3903, 0.1
 10.times do
   event = Event.create!(capacity: rand(1..20),
                         description: Faker::Fantasy::Tolkien.poem,
-                        category: ['Health', 'Education', 'Animals', 'Community', 'Children', 'Faith', 'Women', 'Shelters', 'LGBTQ', 'Sport', 'Environment', 'Food', 'Other'].sample,
+                        category: ['Health', 'Education', 'Animals', 'Community', 'Children', 'Faith', 'Women', 'Shelter', 'LGBTQ', 'Sport', 'Environment', 'Food', 'Other'].sample,
                         address: "#{rand(1..100)} Hackney Street, London",
                         latitude: latitude.sample,
                         longitude: longitude.sample,
