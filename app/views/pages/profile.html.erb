@@ -157,7 +157,7 @@
           <p class="m-0"><%= @profile.bio %></p>
         </div>
         <div class="card-container">
-          <% @profile.events.each do |event| %>
+          <% @profile.events.includes([photo_attachment: :blob]).each do |event| %>
             <%= (render "shared/card-small", event: event) %>
             <%= (render "shared/profile-card-large", event: event) %>
           <% end %>
