@@ -3,9 +3,7 @@
       <div class="picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @event.photo.key, height: 100, crop: :fill %>')"> -->
       </div>
     </div>
-  </div>
-
-
+</div>
 
   <div class="col-12 col-md-8 col-lg-6 p-0">
       <%= render 'shared/mapbox' %> 
@@ -14,12 +12,13 @@
       <div class="show-info shadow p-5">
         <div class="icons">
           <%= link_to toggle_favorite_event_path(@event), remote: true, method: :post do%>
-            <% if current_user.favorited?(@event) %>
+            <% if current_user.nil? %>
+            <% elsif current_user.favorited?(@event) %>
               <i class="fas fa-star"></i>
             <% else %>
               <i class="far fa-star"></i>
             <% end %>
-          <% end %>
+        <% end %>
         </div>
         <div class="text-center">
           <h1 class="mb-3"><%= @event.name %></h1>
@@ -29,6 +28,12 @@
         <p class="mt-3"><%= @event.description %></p>
         <p><strong>Address: </strong><%= @event.address %></p>
         <p><strong>Vacancy: </strong><%= pluralize (@event.capacity - @event.bookings.count), 'spot' %> left</p>
+        <p id="attending">Also attending: </p>
+        <div class="avatar">
+          <% @registered.each do |booking| %>
+            <%= cl_image_tag booking.user.photo.key %>
+          <% end %>
+        </div>
         <% if current_user == @event.user %>
           <div class="shadow d-flex rounded-pill align-items-center justify-content-center my-3">
             <ul class="m-0 p-3">
