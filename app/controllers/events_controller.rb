@@ -19,6 +19,12 @@ class EventsController < ApplicationController
     @booking = Booking.where(user: current_user, event: @event)
     @booking = @booking.empty? ? Booking.new : @booking[0]
     @registered = Booking.where(event: @event)
+    @markers =  [{
+      lat: @event.latitude,
+      lng: @event.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { event: @event }),
+      image_url: helpers.asset_url('placeholder.png')
+    }]
   end
 
   def toggle_favorite
