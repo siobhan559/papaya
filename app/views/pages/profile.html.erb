@@ -72,6 +72,10 @@
           </div>
           <div class="text-center mt-2">
             <h1><%= @profile.name %></h1>
+            <p class='mb-0'>Following</p>
+            <div class="following-count">
+              <strong><%= @profile.following.count %></strong>
+            </div>
           </div>
           <div class="bio shadow p-4 rounded mt-3">
             <p class="m-0"><strong>Bio:</strong> <%= @profile.bio %></p>
