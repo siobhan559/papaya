@@ -13,4 +13,11 @@
 #map {
   border-radius: 10px;
   border: 3px solid rgba(246,140,107, 0.4);
+  width: 100%;
+  @media(max-width: 991px) {
+    height: 50vh;
+  }
+  @media(min-width: 992px) {
+    height: 80vh;
+  }
 }
