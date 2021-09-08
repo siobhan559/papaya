@@ -61,7 +61,7 @@
           </div>
         </div>
         <div class="tab-pane fade" id="create" role="tabpanel" aria-labelledby="create-tab">
-          <%= render 'shared/form-organization', event: @event %>
+          <%= render 'shared/form-organization', event: @new_event %>
         </div>
       </div>
     <% else %>
@@ -71,6 +71,9 @@
         </li>
         <li class="nav-item" role="presentation">
           <a class="tab-underlined" id="upcoming-tab" data-toggle="tab" href="#upcoming" role="tab" aria-controls="upcoming" aria-selected="false">Upcoming</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="tab-underlined" id="past-tab" data-toggle="tab" href="#past" role="tab" aria-controls="past" aria-selected="false">Past</a>
         </li>
         <li class="nav-item" role="presentation">
           <a class="tab-underlined" id="favorited-tab" data-toggle="tab" href="#favorited" role="tab" aria-controls="favorited" aria-selected="favorited">Favourited</a>
@@ -109,6 +112,14 @@
             <% end %>
           </div>
         </div>
+        <div class="tab-pane fade" id="past" role="tabpanel" aria-labelledby="past-tab">
+          <div class="card-container">
+            <% @past_registered.each do |event| %>
+              <%= (render "shared/card-small", event: event) %>
+              <%= (render "shared/card-large", event: event) %>
+            <% end %>
+          </div>
+        </div>
         <div class="tab-pane fade" id="favorited" role="tabpanel" aria-labelledby="favorited-tab">
           <div class="card-container">
             <% @favorites.each do |event| %>
@@ -130,7 +141,7 @@
       </div>
     <% end %>
   <% else %>
-    <% if @profile.organization %>
+    <% if @profile.organization && current_user.organization %>
       <div class="container">
         <div class="d-flex justify-content-center">
           <%= cl_image_tag @profile.photo.key, crop: :fill, radius: 100, class: 'profile-image mt-2'%>
@@ -143,7 +154,36 @@
             </div>
         </div>
         <div class="d-flex justify-content-center align-items-center">
-          <% if @following %>
+          <% if @chatroom %>
+            <%= link_to 'Message', chatroom_path(@chatroom), class: 'btn btn-flat btn-thin' %>
+          <% else %>
+            <%= link_to 'Start Messaging', chatrooms_path(invitee: @profile), method: :post, class: 'btn btn-flat btn-thin' %>
+          <% end %>
+        </div>
+        <div class="bio shadow p-4 rounded mt-3">
+          <p class="m-0"><%= @profile.bio %></p>
+        </div>
+        <div class="card-container">
+          <% @upcoming_organized.each do |event| %>
+            <%= (render "shared/card-small", event: event) %>
+            <%= (render "shared/profile-card-large", event: event) %>
+          <% end %>
+        </div>
+      </div>
+    <% elsif @profile.organization %>
+      <div class="container">
+        <div class="d-flex justify-content-center">
+          <%= cl_image_tag @profile.photo.key, crop: :fill, radius: 100, class: 'profile-image mt-2'%>
+        </div>
+        <div class="text-center mt-2">
+          <h1><%= @profile.name %></h1>
+          <p class='mb-0'>Followers</p>
+            <div class="following-count">
+              <strong><%= @profile.followers.count %></strong>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+          <% if @am_following %>
             <%= link_to 'Unfollow', unfollow_user_path, method: :unfollow,  class: 'btn btn-flat btn-thin' %>
           <% else %>
             <%= link_to 'Follow', follow_user_path, method: :follow,  class: 'btn btn-flat btn-thin' %>
@@ -158,7 +198,7 @@
           <p class="m-0"><%= @profile.bio %></p>
         </div>
         <div class="card-container">
-          <% @profile.events.includes([photo_attachment: :blob]).each do |event| %>
+          <% @upcoming_organized.each do |event| %>
             <%= (render "shared/card-small", event: event) %>
             <%= (render "shared/profile-card-large", event: event) %>
           <% end %>
@@ -177,11 +217,6 @@
             </div>
         </div>
         <div class="d-flex justify-content-center align-items-center">
-          <% if @following %>
-            <%= link_to 'Unfollow', unfollow_user_path, method: :unfollow,  class: 'btn btn-flat btn-thin' %>
-          <% else %>
-            <%= link_to 'Follow', follow_user_path, method: :follow,  class: 'btn btn-flat btn-thin' %>
-          <% end %>
           <% if @chatroom %>
             <%= link_to 'Message', chatroom_path(@chatroom), class: 'btn btn-flat btn-thin' %>
           <% else %>
