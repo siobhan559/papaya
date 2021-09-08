@@ -17,6 +17,7 @@ class PagesController < ApplicationController
       @event = Event.new if @profile.organization
     else
       @chatroom = Chatroom.all.find { |chatroom| chatroom.exist_with?(@profile, current_user) }
+      @following = current_user.following.find { |user| user == @profile }.present?
     end
   end
 end

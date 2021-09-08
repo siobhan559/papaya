@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'about', to: 'pages#about', as: :about
   get 'profile/:id', to: "pages#profile", as: :profile
+  resources :users, only: [:index] do
+    member do
+      post :follow
+      post :unfollow
+    end
+  end
   resources :events, only: %i[index show create update destroy] do
     resources :bookings, only: %i[create destroy update]
     member do
