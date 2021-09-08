@@ -1,0 +1,11 @@
+<%= link_to event_path(event), class: 'd-none d-lg-block' do %>
+  <div class="profile-card-large">
+    <div class="image" style="background-image: url('<%= cl_image_path event.photo.key %>')"></div>
+    <div class="card-info">
+      <h3><%= event.name %></h3>
+      <p><%= cl_image_tag event.user.photo.key, alt: '#', class: 'avatar' %> <em>by <%= event.user.company_name %></em></p>
+      <div class="category"><%= event.category %></div>
+    </div>
+    <div class="card-date"><%= event.start_time.strftime("%m/%d/%Y") %></div>
+  </div>
+<% end %>

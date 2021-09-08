@@ -35,7 +35,7 @@
             <div class="card-container">
               <% @profile.events.each do |event| %>
                 <%= (render "shared/card-small", event: event) %>
-                <%= (render "shared/card-large", event: event) %>
+                <%= (render "shared/profile-card-large", event: event) %>
               <% end %>
             </div>
           </div>
