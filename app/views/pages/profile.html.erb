@@ -19,15 +19,29 @@
         <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
           <div class="d-flex justify-content-center">
             <% image_url = @profile.photo.attached? ? @profile.photo.key : 'https://www.pngitem.com/pimgs/m/22-223968_default-profile-picture-circle-hd-png-download.png' %>
-            <%= cl_image_tag image_url, crop: :fill, radius: 100, class: 'w-20 h-20 mt-2'%>
+            <%= cl_image_tag image_url, crop: :fill, radius: 100, class: 'profile-image'%>
           </div>
           <div class="text-center mt-2">
             <h1><%= @profile.name %></h1>
-          </div>
-          <div class="bio shadow p-4 rounded mt-3">
-            <p class="m-0"><strong>Bio:</strong> <%= @profile.bio %></p>
-              <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'btn btn-flat btn-block' %>
+            <p class='mb-0'>Followers</p>
+            <div class="following-count">
+              <strong><%= @profile.followers.count %></strong>
             </div>
+          </div>
+          <div class='profile-info'>
+            <div class="bio shadow p-4 rounded mt-3">
+              <p class="m-0"><%= @profile.bio %></p>
+            </div>
+            <div class="card-container">
+              <% @profile.events.each do |event| %>
+                <%= (render "shared/card-small", event: event) %>
+                <%= (render "shared/profile-card-large", event: event) %>
+              <% end %>
+            </div>
+          </div>
+          <div class='logout'>
+            <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'logout-btn' %>
+          </div>
         </div>
         <div class="tab-pane fade" id="upcoming" role="tabpanel" aria-labelledby="upcoming-tab">
           <div class="card-container">
@@ -58,9 +72,6 @@
           <a class="tab-underlined" id="upcoming-tab" data-toggle="tab" href="#upcoming" role="tab" aria-controls="upcoming" aria-selected="false">Upcoming</a>
         </li>
         <li class="nav-item" role="presentation">
-          <a class="tab-underlined" id="past-tab" data-toggle="tab" href="#past" role="tab" aria-controls="past" aria-selected="false">Past</a>
-        </li>
-        <li class="nav-item" role="presentation">
           <a class="tab-underlined" id="favorited-tab" data-toggle="tab" href="#favorited" role="tab" aria-controls="favorited" aria-selected="favorited">Favourited</a>
         </li>
         <li class="nav-item" role="presentation">
@@ -71,27 +82,27 @@
         <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
           <div class="d-flex justify-content-center">
             <% image_url = @profile.photo.attached? ? @profile.photo.key : 'https://www.pngitem.com/pimgs/m/22-223968_default-profile-picture-circle-hd-png-download.png' %>
-            <%= cl_image_tag image_url, crop: :fill, radius: 100, class: 'w-25 h-25 mt-2'%>
+            <%= cl_image_tag image_url, crop: :fill, radius: 100, class: 'profile-image'%>
           </div>
           <div class="text-center mt-2">
             <h1><%= @profile.name %></h1>
+            <p class='mb-0'>Following</p>
+            <div class="following-count">
+              <strong><%= @profile.following.count %></strong>
+            </div>
           </div>
-          <div class="bio shadow p-4 rounded mt-3">
-            <p class="m-0"><strong>Bio:</strong> <%= @profile.bio %></p>
-            <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'btn btn-flat btn-block' %>
+          <div class='profile-info'>
+            <div class="bio shadow p-4 rounded mt-3">
+              <p class="m-0"><%= @profile.bio %></p>
+            </div>
+            <div class='logout'>
+              <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'logout-btn' %>
+            </div>
           </div>
         </div>
         <div class="tab-pane fade" id="upcoming" role="tabpanel" aria-labelledby="upcoming-tab">
           <div class="card-container">
             <% @upcoming.each do |event| %>
-              <%= (render "shared/card-small", event: event) %>
-              <%= (render "shared/card-large", event: event) %>
-            <% end %>
-          </div>
-        </div>
-        <div class="tab-pane fade" id="past" role="tabpanel" aria-labelledby="past-tab">
-          <div class="card-container">
-            <% @past.each do |event| %>
               <%= (render "shared/card-small", event: event) %>
               <%= (render "shared/card-large", event: event) %>
             <% end %>
@@ -121,10 +132,14 @@
     <% if @profile.organization %>
       <div class="container">
         <div class="d-flex justify-content-center">
-          <%= cl_image_tag @profile.photo.key, crop: :fill, radius: 100, class: 'w-25 h-25 mt-2'%>
+          <%= cl_image_tag @profile.photo.key, crop: :fill, radius: 100, class: 'profile-image mt-2'%>
         </div>
         <div class="text-center mt-2">
           <h1><%= @profile.name %></h1>
+          <p class='mb-0'>Followers</p>
+            <div class="following-count">
+              <strong><%= @profile.followers.count %></strong>
+            </div>
         </div>
         <div class="d-flex justify-content-center align-items-center">
           <% if @following %>
@@ -139,16 +154,26 @@
           <% end %>
         </div>
         <div class="bio shadow p-4 rounded mt-3">
-          <p class="m-0"><strong>Bio:</strong> <%= @profile.bio %></p>
+          <p class="m-0"><%= @profile.bio %></p>
+        </div>
+        <div class="card-container">
+          <% @profile.events.each do |event| %>
+            <%= (render "shared/card-small", event: event) %>
+            <%= (render "shared/profile-card-large", event: event) %>
+          <% end %>
         </div>
       </div>
     <% else %>
       <div class="container">
         <div class="d-flex justify-content-center">
-          <%= cl_image_tag @profile.photo.key, crop: :fill, radius: 100, class: 'w-25 h-25 mt-2'%>
+          <%= cl_image_tag @profile.photo.key, crop: :fill, radius: 100, class: 'profile-image'%>
         </div>
         <div class="text-center mt-2">
           <h1><%= @profile.name %></h1>
+          <p class='mb-0'>Following</p>
+            <div class="following-count">
+              <strong><%= @profile.following.count %></strong>
+            </div>
         </div>
         <div class="d-flex justify-content-center align-items-center">
           <% if @following %>
@@ -163,7 +188,7 @@
           <% end %>
         </div>
         <div class="bio shadow p-4 rounded mt-3">
-          <p class="m-0"><strong>Bio:</strong> <%= @profile.bio %></p>
+          <p class="m-0"><%= @profile.bio %></p>
         </div>
       </div>
     <% end %>

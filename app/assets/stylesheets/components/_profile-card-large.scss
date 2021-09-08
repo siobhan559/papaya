@@ -1,0 +1,40 @@
+.profile-card-large {
+  border-radius: 10px;
+  height: 200px;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 16px 0px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.15);
+  &:hover {
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  }
+
+  .image {
+    width: 168px;
+    height: 168px;
+    background-size: cover;
+    background-position: center;
+    margin: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+  }
+
+  .card-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex: 3;
+    padding: 18px 0px;
+  }
+
+  .card-date {
+    margin-left: 160px;
+    margin-right: 30px;
+  }
+}
