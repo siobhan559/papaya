@@ -3,20 +3,26 @@ ul {
   padding-inline-start: 0px;
 }
 
-.bio {
+.profile-info {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
 }
 
 .logout-btn {
-  background-color: $main;
+  border: 1px solid rgba(58,51,53,0.5);
   padding: 0px 36px;
   margin-top: 20px;
-  color: $cultured;
+  margin-bottom: 20px;
+  color: rgba(58,51,53,0.5);
   border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  // align-content: center;
+  width: fit-content;
   &:hover {
-    color: $cultured;
-    opacity: 0.8;
+    color: $coffee;
+    border: 1px solid $coffee;
+    opacity: 1;
   }
 }
