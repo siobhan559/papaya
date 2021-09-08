@@ -2,3 +2,21 @@ ul {
   list-style: none;
   padding-inline-start: 0px;
 }
+
+.bio {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.logout-btn {
+  background-color: $main;
+  padding: 0px 36px;
+  margin-top: 20px;
+  color: $cultured;
+  border-radius: 20px;
+  &:hover {
+    color: $cultured;
+    opacity: 0.8;
+  }
+}

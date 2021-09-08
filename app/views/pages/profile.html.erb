@@ -78,8 +78,8 @@
             </div>
           </div>
           <div class="bio shadow p-4 rounded mt-3">
-            <p class="m-0"><strong>Bio:</strong> <%= @profile.bio %></p>
-            <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'btn btn-flat btn-block' %>
+            <p class="m-0"><%= @profile.bio %></p>
+            <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'logout-btn col-xs-1 center-block' %>
           </div>
         </div>
         <div class="tab-pane fade" id="upcoming" role="tabpanel" aria-labelledby="upcoming-tab">
