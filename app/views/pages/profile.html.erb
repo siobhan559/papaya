@@ -63,6 +63,9 @@
         <li class="nav-item" role="presentation">
           <a class="tab-underlined" id="favorited-tab" data-toggle="tab" href="#favorited" role="tab" aria-controls="favorited" aria-selected="favorited">Favourited</a>
         </li>
+        <li class="nav-item" role="presentation">
+          <a class="tab-underlined" id="following-tab" data-toggle="tab" href="#following" role="tab" aria-controls="following" aria-selected="following">Following</a>
+        </li>
       </ul>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -102,6 +105,16 @@
             <% end %>
           </div>
         </div>
+        <div class="tab-pane fade" id="following" role="tabpanel" aria-labelledby="following-tab">
+          <div class="card-container">
+          <% @profile.following.each do |follow| %>
+            <% follow.events.each do |event| %>
+              <%= (render "shared/card-small", event: event) %>
+              <%= (render "shared/card-large", event: event) %>
+            <% end %>
+          <% end %>
+          </div>
+        </div>
       </div>
     <% end %>
   <% else %>
@@ -114,7 +127,11 @@
           <h1><%= @profile.name %></h1>
         </div>
         <div class="d-flex justify-content-center align-items-center">
-          <%= link_to 'Follow', '#',  class: 'btn btn-flat btn-thin' %>
+          <% if @following %>
+            <%= link_to 'Unfollow', unfollow_user_path, method: :unfollow,  class: 'btn btn-flat btn-thin' %>
+          <% else %>
+            <%= link_to 'Follow', follow_user_path, method: :follow,  class: 'btn btn-flat btn-thin' %>
+          <% end %>
           <% if @chatroom %>
             <%= link_to 'Message', chatroom_path(@chatroom), class: 'btn btn-flat btn-thin' %>
           <% else %>
@@ -134,7 +151,11 @@
           <h1><%= @profile.name %></h1>
         </div>
         <div class="d-flex justify-content-center align-items-center">
-          <%= link_to 'Follow', '#',  class: 'btn btn-flat btn-thin' %>
+          <% if @following %>
+            <%= link_to 'Unfollow', unfollow_user_path, method: :unfollow,  class: 'btn btn-flat btn-thin' %>
+          <% else %>
+            <%= link_to 'Follow', follow_user_path, method: :follow,  class: 'btn btn-flat btn-thin' %>
+          <% end %>
           <% if @chatroom %>
             <%= link_to 'Message', chatroom_path(@chatroom), class: 'btn btn-flat btn-thin' %>
           <% else %>
