@@ -42,6 +42,7 @@
 
 .avatar {
   padding: 5px;
+  display: flex;
 }
 
 .avatar img {
@@ -49,4 +50,5 @@
   height: 30px;
   border-radius: 50%;
   object-fit: cover;
+  margin-right: 5px;
 }
