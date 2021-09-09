@@ -113,7 +113,7 @@ gretal = User.create( email: "gretal@papaya.com",
                       age: 19,
                       gender: 'female',
                       religion: 'athiest')
-attach_photo(gretal, 'https://images.unsplash.com/photo-1581625991440-291cfd5c171c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80')
+attach_photo(gretal, 'https://scontent-lhr8-2.xx.fbcdn.net/v/t31.18172-8/18238040_10158579262150032_7854301631912549687_o.jpg?_nc_cat=101&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=DJF_REGIf3EAX-JrU4z&_nc_ht=scontent-lhr8-2.xx&oh=d82ac5c0f24baf08f76f64a15565a6b3&oe=6160DB2B')
 
 
 foodcycle = User.create(email: "foodcycle@papaya.com",
