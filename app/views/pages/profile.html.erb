@@ -23,9 +23,8 @@
           </div>
           <div class="text-center mt-2">
             <h1><%= @profile.name %></h1>
-            <p class='mb-0'>Followers</p>
             <div class="following-count">
-              <strong><%= @profile.followers.count %></strong>
+              <span><%= @profile.followers.count %></span> Followers
             </div>
           </div>
           <div class='profile-info'>
@@ -83,9 +82,8 @@
           </div>
           <div class="text-center mt-2">
             <h1><%= @profile.name %></h1>
-            <p class='mb-0'>Following</p>
             <div class="following-count">
-              <strong><%= @followings.count %></strong>
+              <span><%= @followings.count %></span> Following
             </div>
           </div>
           <div class='profile-info'>
@@ -141,10 +139,9 @@
         </div>
         <div class="text-center mt-2">
           <h1><%= @profile.name %></h1>
-          <p class='mb-0'>Followers</p>
-            <div class="following-count">
-              <strong><%= @profile.followers.count %></strong>
-            </div>
+          <div class="following-count">
+            <span><%= @profile.followers.count %></span> Followers
+          </div>
         </div>
         <div class="d-flex justify-content-center align-items-center">
           <% if @chatroom %>
@@ -170,21 +167,20 @@
         </div>
         <div class="text-center mt-2">
           <h1><%= @profile.name %></h1>
-          <p class='mb-0'>Followers</p>
-            <div class="following-count">
-              <strong><%= @profile.followers.count %></strong>
-            </div>
+          <div class="following-count">
+            <span><%= @profile.followers.count %></span> Followers
+          </div>
         </div>
         <div class="d-flex justify-content-center align-items-center">
           <% if @am_following %>
-            <%= link_to 'Unfollow', unfollow_user_path, method: :unfollow,  class: 'btn btn-flat btn-thin' %>
+            <%= link_to 'Unfollow', unfollow_user_path, method: :unfollow,  class: 'btn btn-flat btn-thin mx-2' %>
           <% else %>
-            <%= link_to 'Follow', follow_user_path, method: :follow,  class: 'btn btn-flat btn-thin' %>
+            <%= link_to 'Follow', follow_user_path, method: :follow,  class: 'btn btn-flat btn-thin mx-2' %>
           <% end %>
           <% if @chatroom %>
-            <%= link_to 'Message', chatroom_path(@chatroom), class: 'btn btn-flat btn-thin' %>
+            <%= link_to 'Message', chatroom_path(@chatroom), class: 'btn btn-flat btn-thin mx-2' %>
           <% else %>
-            <%= link_to 'Start Messaging', chatrooms_path(invitee: @profile), method: :post, class: 'btn btn-flat btn-thin' %>
+            <%= link_to 'Start Messaging', chatrooms_path(invitee: @profile), method: :post, class: 'btn btn-flat btn-thin mx-2' %>
           <% end %>
         </div>
         <div class="bio shadow p-4 rounded mt-3">
@@ -204,10 +200,9 @@
         </div>
         <div class="text-center mt-2">
           <h1><%= @profile.name %></h1>
-          <p class='mb-0'>Following</p>
-            <div class="following-count">
-              <strong><%= @profile.following.count %></strong>
-            </div>
+          <div class="following-count">
+            <span><%= @profile.followers.count %></span> following
+          </div>
         </div>
         <div class="d-flex justify-content-center align-items-center">
           <% if @chatroom %>
