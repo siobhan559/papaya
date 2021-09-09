@@ -32,7 +32,7 @@
           <p id="attending">Also attending: </p>
           <div class="avatar">
             <% @registered.each do |booking| %>
-              <%= link_to profile_path(booking) do %>
+              <%= link_to profile_path(booking.user) do %>
                 <%= cl_image_tag booking.user.photo.key %>
               <% end %>
             <% end %>
