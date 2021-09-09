@@ -28,23 +28,16 @@ import "bootstrap";
 import { initChatroomCable } from '../channels/chatroom_channel';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initSignUpForm } from '../components/init_signupform';
-import { filterListener } from "../components/filter_btn"
+import { dropDownListener } from "../components/dropdown_btn"
 import { initFlatpickr } from "../plugins/flatpickr";
 
-
-// Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
-
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
   initFlatpickr();
   initSignUpForm();
-  filterListener();
+  dropDownListener();
   initChatroomCable();
   setTimeout(() => {
     initMapbox();
-
   }, 300);
 });
 

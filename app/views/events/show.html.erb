@@ -6,7 +6,6 @@
 </div>
 
 <div class="col-12 col-md-8 col-lg-6 p-0">
-  <%= render 'shared/mapbox-show' %>
   <div class="show d-flex w-100">
     <div class="show-info shadow p-5">
       <div class="icons">
@@ -25,8 +24,10 @@
         <%= link_to "Organized by: #{@event.user.name}", profile_path(@event.user), id: 'creator' %>
       </div>
       <p class="mt-3"><%= @event.description %></p>
-      <p><strong>Address: </strong><%= @event.address %></p>
       <p><strong>Vacancy: </strong><%= pluralize (@event.capacity - @event.bookings.count), 'spot' %> left</p>
+      <strong>Address: </strong><%= @event.address %>
+      <a class="btn btn-ghost see-map" id="dropdown-toggle">see map</a>
+      <div id="hide" class="d-none map-small"><%= render 'shared/mapbox-show' %></div>
       <% if @registered.count >= 1 %>
           <p id="attending">Also attending: </p>
           <div class="avatar">
@@ -53,7 +54,7 @@
           </ul>
         </div>
       <% else %>
-        <div class="register-form justify-content-center d-flex mb-2">
+        <div class="register-form justify-content-center d-flex my-2">
           <% if @booking.pending.nil? %>
             <%= link_to 'Register', event_bookings_path(@event), method: :post, class: 'btn btn-flat btn-block m-0' %>
           <% elsif @booking.pending %>

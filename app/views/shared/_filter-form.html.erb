@@ -1,5 +1,5 @@
 <div class= "filter-card">
-  <a class="btn btn-flat btn-block" id="filter-toggle">Filter Results</a>
+  <a class="btn btn-flat btn-block" id="dropdown-toggle">Filter Results</a>
   <div id="hide" class="hidden-filters">
     <% if params[:filters] != nil %>
       <%= simple_form_for :filters, url: events_path, defaults: { required: false }, method: :get do |f| %>
