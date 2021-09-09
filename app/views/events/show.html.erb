@@ -28,7 +28,7 @@
       <p><strong>Address: </strong><%= @event.address %></p>
       <p><strong>Vacancy: </strong><%= pluralize (@event.capacity - @event.bookings.count), 'spot' %> left</p>
       <p id="attending">Also attending: </p>
-      <div class="avatar">
+      <div class="avatar mb-3">
         <% @registered.each do |booking| %>
           <%= cl_image_tag booking.user.photo.key %>
         <% end %>
