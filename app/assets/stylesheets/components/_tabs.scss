@@ -1,8 +1,11 @@
 .tabs-underlined {
   display: flex;
   align-items: center;
-  margin: 35px 0px;
+  margin-top: 35px;
   justify-content: center;
+  li {
+    height: 50px;
+  }
 }
 
 .tabs-underlined .tab-underlined {
