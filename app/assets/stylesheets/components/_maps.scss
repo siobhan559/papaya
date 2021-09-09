@@ -6,7 +6,6 @@
   border: 3px solid rgba(246,140,107, 0.4);
   color: $coffee;
 }
-
 #map {
   border-radius: 15px;
   border: 3px solid rgba(246,140,107, 0.4);
@@ -18,10 +17,12 @@
     height: 80vh;
   }
 }
-
 .p-0 {
   margin-bottom: -0.5px;
 }
 .mapboxgl-ctrl {
   display: none !important;
+}
+.mapboxgl-canvas {
+  border-radius: 15px;
 }
