@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
   CATEGORY = %w[Health Education Animals Community Children Environment Faith Women Shelter LGBTQ Food Sport Other].sort
-  DATE = ['Earliest Date', 'Latest Date']
+  DATE = ['In the next week', 'In the next month']
 
   acts_as_favoritable
 

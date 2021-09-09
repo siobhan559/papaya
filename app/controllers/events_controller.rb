@@ -79,16 +79,24 @@ class EventsController < ApplicationController
     if filters.present?
       @events = @events.search(filters)
     end
+
     case sort
-    when "Earliest Date" then @events = @events.reorder(start_time: :asc)
-    when "Latest Date" then @events = @events.reorder(start_time: :desc)
+    when "In the next week" then @events = @events.where(start_time: (DateTime.now..DateTime.now + 7))
+    when "In the next month" then @events = @events.where(start_time: (DateTime.now..DateTime.now + 30))
     else
       @events
     end
-
-    # if filters.nil? && params[:query].nil?
-    #   @events = Event.all
-    # end
   end
 
 end
+
+# case sort
+# when "Earliest Date" then @events = @events.reorder(start_time: :asc)
+# when "Latest Date" then @events = @events.reorder(start_time: :desc)
+# else
+#   @events
+# end
+
+# if filters.nil? && params[:query].nil?
+#   @events = Event.all
+# end
