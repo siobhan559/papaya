@@ -7,10 +7,6 @@
   color: $coffee;
 }
 
-/* .mapboxgl-popup-ancher-center {
-  border-top-color: 1px solid rgba(246,140,107, 0.4); } */
-
-
 #map {
   border-radius: 15px;
   border: 3px solid rgba(246,140,107, 0.4);
@@ -25,4 +21,7 @@
 
 .p-0 {
   margin-bottom: -0.5px;
+}
+.mapboxgl-ctrl {
+  display: none !important;
 }
