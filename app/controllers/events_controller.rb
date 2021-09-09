@@ -18,6 +18,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @booking = Booking.where(user: current_user, event: @event)
     @booking = @booking.empty? ? Booking.new : @booking[0]
+    @registered = Booking.where(event: @event)
     @markers =  [{
       lat: @event.latitude,
       lng: @event.longitude,

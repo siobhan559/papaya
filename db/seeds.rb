@@ -211,16 +211,6 @@ secondary_event = Event.create!(capacity: 150,
                                 user: children)
 attach_photo(secondary_event, 'https://images.unsplash.com/photo-1502904550040-7534597429ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1249&q=80')
 
-food_event = Event.create!( capacity: 10,
-                            description: "Week in, week out, our team of incredible volunteers make wholesome meals from food that would have otherwise gone to waste. It is then shared with the community in a safe, welcoming space, where everyone is welcome, no questions asked. Roll your sleeves up, sport a fetching hairnet and join the kitchen team to produce a three-course vegetarian meal. You’ll be peeling, chopping, frying, mixing, boiling, serving and washing up. But most of all, you’ll have a lot of fun. You don’t need to have any previous cooking experience, you just need to get stuck in!",
-                            category: 'Food',
-                            address: "New Covent Garden Market, London",
-                            start_time: DateTime.now + 12,
-                            end_time: DateTime.now + 21,
-                            name: "Big Community Cook",
-                            user: foodcycle)
-attach_photo(food_event, 'https://images.unsplash.com/photo-1597362925123-77861d3fbac7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
-
 race_event = Event.create!( capacity: 350,
                             description: "This is a 5k like no other. This is thousands of people uniting with one purpose. They're not races, or runs, and everyone wins the Race for Life (except cancer). Come join us for a fun day while raising money for Cancer Research at the same time!",
                             category: 'Sport',

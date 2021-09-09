@@ -1,15 +1,8 @@
-.chatroom-head {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  a {
-    position: absolute;
-    left: 15px;
-    height: auto;
-    padding: 7px 12px;
-    margin: 0 !important;
-    width: auto !important;
-  }
+.chatroom-head a {
+  height: auto;
+  padding: 7px 12px;
+  margin: 0 !important;
+  width: auto !important;
 }
 
 .chatroom-container {
@@ -17,38 +10,27 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.15);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  height: 70vh;
+  height: 58vh;
   text-align: center;
   position: relative;
   padding: 5px;
   overflow: auto;
-
   #messages {
-    padding: 20px;;
+    padding: 20px 10px;
   }
 }
 
-.message-box {
-  margin-bottom: 10px;
-}
+.message-box { margin-bottom: 10px; }
 
 .current-user-content {
   background-color: $main;
+  color: $cultured;
   border-radius: 20px;
-  padding: 0px 15px;
+  padding: 5px 15px;
 }
 
 .other-user-content {
   background-color: $timberwolf;
   border-radius: 20px;
-  padding: 0px 15px;
-}
-
-.other-user-author {
-  display: flex;
-  justify-content: end;
-}
-
-.author {
-  display: inline;
+  padding: 5px 15px;
 }
