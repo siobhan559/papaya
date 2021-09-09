@@ -10,6 +10,8 @@
   border-radius: 15px;
   border: 3px solid rgba(246,140,107, 0.4);
   width: 100%;
+  position: sticky;
+  top: 15%;
   @media(max-width: 991px) {
     height: 50vh;
   }
