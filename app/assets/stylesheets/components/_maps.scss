@@ -5,24 +5,28 @@
   border-radius: 12px !important;
   border: 3px solid rgba(246,140,107, 0.4);
   color: $coffee;
+  position: sticky;
+  left: 0;
 }
-
-/* .mapboxgl-popup-ancher-center {
-  border-top-color: 1px solid rgba(246,140,107, 0.4); } */
-
-
 #map {
   border-radius: 15px;
   border: 3px solid rgba(246,140,107, 0.4);
   width: 100%;
-  @media(max-width: 991px) {
-    height: 50vh;
-  }
-  @media(min-width: 992px) {
-    height: 80vh;
-  }
+  @media(max-width: 991px) { height: 50vh; }
+  @media(min-width: 992px) { height: 80vh; }
 }
 
+.index-map {
+  position: sticky !important;
+  top: 15%;
+}
 .p-0 {
   margin-bottom: -0.5px;
+}
+
+.mapboxgl-ctrl {
+  display: none !important;
+}
+.mapboxgl-canvas {
+  border-radius: 15px;
 }

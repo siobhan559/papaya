@@ -1,10 +1,10 @@
-<div class="col-12 text-center py-3 px-0">
+<div class="col-12 text-center py-3 px-0 mt-3">
   <h1>Upcoming Events</h1>
 </div>
-<div class="col-12 col-lg-4 pr-0 px-4">
+<div class="col-12 col-lg-4 pr-0 px-4 mt-3">
   <%= render 'shared/mapbox' %>
 </div>
-<div class="col-12 col-lg-8 px-0">
+<div class="col-12 col-lg-8 px-0 mt-3">
   <%= render 'shared/filter-form' %>
   <div class="text-center">
     <%= pluralize @events.count, 'event' %> found
