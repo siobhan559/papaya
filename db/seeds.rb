@@ -216,7 +216,7 @@ food_event = Event.create!( capacity: 10,
                             category: 'Food',
                             address: "New Covent Garden Market, London",
                             start_time: DateTime.now + 12,
-                            end_time: DateTime.now + 11,
+                            end_time: DateTime.now + 21,
                             name: "Big Community Cook",
                             user: foodcycle)
 attach_photo(food_event, 'https://images.unsplash.com/photo-1597362925123-77861d3fbac7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
