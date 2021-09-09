@@ -1,5 +1,5 @@
 <div class="new-event-card">
-  <%= simple_form_for(@event, defaults: { required: false }) do |f| %>
+  <%= simple_form_for(event, defaults: { required: false }) do |f| %>
     <div class="inline">
       <%= f.input :name %>
       <%= f.input :capacity %>
@@ -16,5 +16,3 @@
     <%= f.submit class: "btn btn-flat w-100 m-20" %>
   <% end %>
 </div>
-    <%#= f.input :latitude %>
-    <%#= f.input :longitude %>

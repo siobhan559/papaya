@@ -34,3 +34,19 @@
   color: $teal;
   font-size: 30px;
 }
+
+#attending {
+  font-size: 10px;
+  margin-bottom: 5px;
+}
+
+.avatar {
+  padding: 5px;
+}
+
+.avatar img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
