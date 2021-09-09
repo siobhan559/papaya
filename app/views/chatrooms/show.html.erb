@@ -1,9 +1,7 @@
-<div class="col-12 chatroom-head my-3">
-  <%= link_to 'Back', chatrooms_path, class: 'btn btn-ghost' %>
+<div class="col-12 mt-3 chatroom-head"><%= link_to 'Back', chatrooms_path, class: 'btn btn-ghost' %></div>
+<div class="col-10 col-md-8 col-lg-6 text-center mt-3">
   <h1><%= @chatroom.other(current_user).name %></h1>
-</div>
-<div class="col-10 col-md-8 col-lg-6 ">
-  <div class='chatroom-container'>
+  <div class='chatroom-container mt-3'>
     <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
       <% if @chatroom.messages.empty? %>
         <h5>Start messaging!</h5>

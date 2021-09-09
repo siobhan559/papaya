@@ -1,10 +1,10 @@
 <div class="w-100" id="message-<%= message.id %>">
   <div>
-    <i class="author">
+    <i>
       <% if message.user == current_user %>
         <span class='d-flex justify-content-start ml-2'><small><strong>You</strong> - <%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small></span>
       <% else %>
-        <span class='other-user-author'><small><strong><%= message.user.first_name %><%= message.user.company_name %></strong> - <%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small></span>
+        <span class='d-flex justify-content-end mr-2'><small><strong><%= message.user.first_name %><%= message.user.company_name %></strong> - <%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small></span>
       <% end %>
     </i>
     <% if message.user == current_user %>
