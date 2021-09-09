@@ -29,7 +29,11 @@
   padding: 0 8px;
 }
 
-.show-map { height: 100%; }
+.show-map {
+  height: 100%;
+  width: 100%;
+}
+
 .p-0 { margin-bottom: -0.5px; }
 .mapboxgl-ctrl { display: none !important; }
 .mapboxgl-canvas { border-radius: 15px; }
