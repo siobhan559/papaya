@@ -9,10 +9,16 @@
   justify-content: space-evenly;
 }
 
+#name-box {
+  padding-right: 20px;
+}
+
 .inline {
   display: flex;
   justify-content: space-evenly;
   padding: 5px;
+  margin-right: 10px;
+  width: 100%;
 }
 
 .tag-item {

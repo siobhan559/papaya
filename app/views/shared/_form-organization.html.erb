@@ -1,8 +1,8 @@
 <div class="new-event-card">
   <%= simple_form_for(event, defaults: { required: false }) do |f| %>
     <div class="inline">
-      <%= f.input :name %>
-      <%= f.input :capacity %>
+      <%= f.input :name, wrapper_html: {class: "w-75", id: "name-box"}  %>
+      <%= f.input :capacity, wrapper_html: {class: "w-25"} %>
     </div>
     <%= f.input :address, wrapper_html: { class: "input-box" } %>
     <div class="inline">
