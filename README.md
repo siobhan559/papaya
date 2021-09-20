@@ -11,7 +11,7 @@ The website was built during the final weeks of a Le Wagon bootcamp using Ruby, 
 </p>
 <p align="center">
   <img width="630" alt="Screenshot 2021-09-20 at 11 43 57" src="https://user-images.githubusercontent.com/86322223/133990019-1e304029-01cc-4446-b5b6-abd5f5cbd768.png">
- 👆 Index page on large formats
+Index page on large formats 👆
 </p>
 <p>
     Show page on tablet 👉 
